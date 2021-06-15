@@ -45,6 +45,16 @@ import { CreateSpecialtyComponent } from './components/specialty/create-specialt
 import { ListSpecialtyComponent } from './components/specialty/list-specialty/list-specialty.component';
 import { FindSpecialtyComponent } from './components/specialty/find-specialty/find-specialty.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateBillComponent } from './components/bill/create-bill/create-bill.component';
+import { DeleteBillComponent } from './components/bill/delete-bill/delete-bill.component';
+import { UpdateBillComponent } from './components/bill/update-bill/update-bill.component';
+import { ListBillComponent } from './components/bill/list-bill/list-bill.component';
+import { FindBillComponent } from './components/bill/find-bill/find-bill.component';
+import { FindPaymentMethodComponent } from './components/payment_method/find-payment-method/find-payment-method.component';
+import { ListPaymentMethodComponent } from './components/payment_method/list-payment-method/list-payment-method.component';
+import { CreatePaymentMethodComponent } from './components/payment_method/create-payment-method/create-payment-method.component';
+import { UpdatePaymentMethodComponent } from './components/payment_method/update-payment-method/update-payment-method.component';
+import { DeletePaymentMethodComponent } from './components/payment_method/delete-payment-method/delete-payment-method.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +98,17 @@ import { HttpClientModule } from '@angular/common/http';
     UpdateSpecialtyComponent,
     CreateSpecialtyComponent,
     ListSpecialtyComponent,
-    FindSpecialtyComponent
+    FindSpecialtyComponent,
+    CreateBillComponent,
+    DeleteBillComponent,
+    UpdateBillComponent,
+    ListBillComponent,
+    FindBillComponent,
+    FindPaymentMethodComponent,
+    ListPaymentMethodComponent,
+    CreatePaymentMethodComponent,
+    UpdatePaymentMethodComponent,
+    DeletePaymentMethodComponent
   ],
   imports: [
     BrowserModule,

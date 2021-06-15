@@ -40,64 +40,87 @@ import { UpdateSpecialtyComponent } from './components/specialty/update-specialt
 import { CreateSpecialtyComponent } from './components/specialty/create-specialty/create-specialty.component';
 import { ListSpecialtyComponent } from './components/specialty/list-specialty/list-specialty.component';
 import { FindSpecialtyComponent } from './components/specialty/find-specialty/find-specialty.component';
+import { CreateBillComponent } from './components/bill/create-bill/create-bill.component';
+import { DeleteBillComponent } from './components/bill/delete-bill/delete-bill.component';
+import { UpdateBillComponent } from './components/bill/update-bill/update-bill.component';
+import { ListBillComponent } from './components/bill/list-bill/list-bill.component';
+import { FindBillComponent } from './components/bill/find-bill/find-bill.component';
+import { FindPaymentMethodComponent } from './components/payment_method/find-payment-method/find-payment-method.component';
+import { ListPaymentMethodComponent } from './components/payment_method/list-payment-method/list-payment-method.component';
+import { CreatePaymentMethodComponent } from './components/payment_method/create-payment-method/create-payment-method.component';
+import { UpdatePaymentMethodComponent } from './components/payment_method/update-payment-method/update-payment-method.component';
+import { DeletePaymentMethodComponent } from './components/payment_method/delete-payment-method/delete-payment-method.component';
 
 const routes: Routes = [
-  
+  {path: '', redirectTo:'client', pathMatch:'full'},
+  {path: 'list-clients', component: ListClientComponent},
+  {path: 'new-client', component: CreateClientComponent},
+  {path: 'update-client/:id', component: UpdateClientComponent},
+  {path: 'search-client', component: FindClientComponent},
+  {path: 'delete-client', component: DeleteClientComponent},
 
+  {path: '', redirectTo:'appointment', pathMatch:'full'},
+  {path: 'list-appointments', component: ListAppointmentComponent},
+  {path: 'new-appointment', component: CreateAppointmentComponent},
+  {path: 'update-appointment/:id', component: UpdateAppointmentComponent},
+  {path: 'search-appointment', component: FindAppointmentComponent},
+  {path: 'delete-appointment', component: DeleteAppointmentComponent},
 
+  {path: '', redirectTo:'diet', pathMatch:'full'},
+  {path: 'listdiets', component: ListDietComponent},
+  {path: 'newdiet', component: CreateDietComponent},
+  {path: 'updatediet/:id', component: UpdateDietComponent},
+  {path: 'searchdiet', component: FindDietComponent},
+  {path: 'deletediet', component: DeleteDietComponent},
 
+  {path: '', redirectTo:'nutritionist', pathMatch:'full'},
+  {path: 'listnutritionists', component: ListNutritionistComponent},
+  {path: 'newnutritionist', component: CreateNutritionistComponent},
+  {path: 'updatenutritionist/:id', component: UpdateNutritionistComponent},
+  {path: 'searchnutritionist', component: FindNutritionistComponent},
+  {path: 'deletenutritionist', component: DeleteNutritionistComponent},
 
+  {path: '', redirectTo:'profesional_profile', pathMatch:'full'},
+  {path: 'listprofessionalprofiles', component: ListClientComponent},
+  {path: 'newprofessionalprofile', component: CreateClientComponent},
+  {path: 'updateprofessionalprofile/:id', component: UpdateClientComponent},
+  {path: 'searchprofessionalprofile', component: FindClientComponent},
+  {path: 'deleteprofessionalprofile', component: DeleteAppointmentComponent},
 
+  {path: '', redirectTo:'recipe', pathMatch:'full'},
+  {path: 'listclients', component: ListClientComponent},
+  {path: 'newclient', component: CreateClientComponent},
+  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'searchclient', component: FindClientComponent},
+  {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
+  {path: '', redirectTo:'recommendation', pathMatch:'full'},
+  {path: 'listclients', component: ListClientComponent},
+  {path: 'newclient', component: CreateClientComponent},
+  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'searchclient', component: FindClientComponent},
+  {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
+  {path: '', redirectTo:'specialty', pathMatch:'full'},
+  {path: 'listclients', component: ListClientComponent},
+  {path: 'newclient', component: CreateClientComponent},
+  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'searchclient', component: FindClientComponent},
+  {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
+  {path: '', redirectTo:'bill', pathMatch:'full'},
+  {path: 'listclients', component: ListClientComponent},
+  {path: 'newclient', component: CreateClientComponent},
+  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'searchclient', component: FindClientComponent},
+  {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  {path: '', redirectTo:'payment-method', pathMatch:'full'},
+  {path: 'listclients', component: ListClientComponent},
+  {path: 'newclient', component: CreateClientComponent},
+  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'searchclient', component: FindClientComponent},
+  {path: 'deleteappointment', component: DeleteAppointmentComponent}
 ];
 
 @NgModule({
