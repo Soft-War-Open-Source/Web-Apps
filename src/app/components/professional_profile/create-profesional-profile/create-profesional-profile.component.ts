@@ -24,6 +24,7 @@ export class CreateProfesionalProfileComponent implements OnInit {
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.professionalpofile = new ProfessionalProfile();
     this.router.navigate(['newprofessionalprofile']);
+    
   }
 
 }

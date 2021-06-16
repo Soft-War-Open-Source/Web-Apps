@@ -10,13 +10,14 @@ import { SpecialtyService } from 'src/app/services/specialty.service';
 })
 export class ListSpecialtyComponent implements OnInit {
 
-
+  id: number = 1;
+  specialty: Specialty = new Specialty();
   specialtys: Specialty[]=[];
 
   constructor(private router: Router, private specialtyService: SpecialtyService) { }
 
   ngOnInit(): void {
-    this.loadDataSpecialtys();
+    this.searchSpecialtybyId();
   }
 
   loadDataSpecialtys(){
@@ -30,6 +31,13 @@ export class ListSpecialtyComponent implements OnInit {
   }
   updateSpecialty(specialty: Specialty){
     this.router.navigate(['updatespecialty', specialty.id]);
+  }
+  searchSpecialtybyId(){
+    if(this.id == 1  ){
+      this.specialtyService.getSpecialtyById(this.id)
+      .subscribe(specialty=>this.specialty = specialty)
+      this.id = 0;
+    }
   }
 
 }

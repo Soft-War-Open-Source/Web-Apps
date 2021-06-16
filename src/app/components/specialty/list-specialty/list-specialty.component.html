@@ -4,25 +4,29 @@
 <div>
 </div>
 <br/>
-<table class="table table-striped">
-    <thead class="thead_dark">
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">InstitutionName</th>
-        </tr>
-    </thead>
-    <tbody>
-        <ng-container *ngFor="let specialty of specialtys">
+
+    <table class="table table-striped">
+        <thead class="thead_dark">
             <tr>
-                <th scope="row">{{ specialty.id }}</th>
-                <td>{{specialty.name}}</td>
-                <td>{{specialty.institutionName}}</td>
-                <td>
-                    <button type="submit" (click)='deleteSpecialty(specialty)' class="btn btn-danger">Delete</button>
-                    <button type="submit" (click)='updateSpecialty(specialty)' class="btn btn-primary">Update</button>
-                </td>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">InstitutionName</th>
             </tr>
-        </ng-container>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+         
+                <tr>
+                    <th scope="row">{{ specialty.id }}</th>
+                    <td>{{specialty.name}}</td>
+                    <td>{{specialty.institutionName}}</td>
+                    <td>
+                        <button type="submit" (click)='deleteSpecialty(specialty)' class="btn btn-danger">Delete</button>
+                        <button type="submit" (click)='updateSpecialty(specialty)' class="btn btn-primary">Update</button>
+                    </td>
+                </tr>
+           
+        </tbody>
+    </table>
+
+
+
