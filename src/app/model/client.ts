@@ -2,7 +2,7 @@ import { ClientFavoriteRecipes } from "./client_favorite_recipes";
 
 export class Client {
     id: number;
-    userName: string;
+    username: string;
     password: string;
     firstName: string;
     lastName: string;
@@ -12,7 +12,7 @@ export class Client {
 
     constructor(){
         this.id =0;
-        this.userName = "";
+        this.username = "";
         this.password = "";
         this.firstName = "";
         this.lastName = "";
