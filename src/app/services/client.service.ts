@@ -27,24 +27,35 @@ export class ClientService {
     return this.http.get(`${this.baseURL}`);
   }
 
-  getCustomerByLastName(lastName: string) : Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByLastname/${lastName}`)
-  }
-
-  getCustomerById(id: number) : Observable<any>{
+  getClientById(id: number) : Observable<any>{
     return this.http.get(`${this.baseURL}/${id}`)
   }
 
-  getCustomerByDni(dni: string): Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByDni/${dni}`);
+  getClientByUsername(username: string) : Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByUsername/${username}`)
   }
 
-  getCustomerByFirstName(firstName: string): Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByFirstname/${firstName}`);
+  getClientByFirstName(firstName: string): Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByFirstName/${firstName}`);
   }
 
-  getCustomerByFirstNameAndLastName(firstName: string, lastName: string): Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByFirstnameAndLastname/${firstName}/${lastName}`);
+  getClientByLastName(lastName: string) : Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByLastName/${lastName}`)
   }
 
+  getClientByFirstNameAndLastName(firstName: string, lastName: string): Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByFirstNameAndLastName/${firstName}/${lastName}`);
+  }
+
+  addFavoriteRecipe(recipe_id: number, client_id: number, date: Object): Observable<any>{
+    return this.http.post(`${this.baseURL}/${recipe_id}/${client_id}`, date);
+  }
+
+  getClientFavoriteRecipes(id: number) : Observable<any>{
+    return this.http.get(`${this.baseURL}/findClientFavoriteRecipes/${id}`)
+  }
+
+  deleteClientFavoriteRecipe(recipe_id: number, client_id: number) : Observable<any>{
+    return this.http.delete(`${this.baseURL}/${recipe_id}/${client_id}`);
+  }
 }
