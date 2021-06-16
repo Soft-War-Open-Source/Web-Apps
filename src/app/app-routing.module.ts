@@ -50,8 +50,15 @@ import { ListPaymentMethodComponent } from './components/payment_method/list-pay
 import { CreatePaymentMethodComponent } from './components/payment_method/create-payment-method/create-payment-method.component';
 import { UpdatePaymentMethodComponent } from './components/payment_method/update-payment-method/update-payment-method.component';
 import { DeletePaymentMethodComponent } from './components/payment_method/delete-payment-method/delete-payment-method.component';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'menu', component: MenuComponent},
+  {path: 'profile', component: ProfileComponent},
+
   {path: '', redirectTo:'client', pathMatch:'full'},
   {path: 'list-clients', component: ListClientComponent},
   {path: 'new-client', component: CreateClientComponent},

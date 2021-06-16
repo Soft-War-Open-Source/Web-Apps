@@ -55,6 +55,11 @@ import { ListPaymentMethodComponent } from './components/payment_method/list-pay
 import { CreatePaymentMethodComponent } from './components/payment_method/create-payment-method/create-payment-method.component';
 import { UpdatePaymentMethodComponent } from './components/payment_method/update-payment-method/update-payment-method.component';
 import { DeletePaymentMethodComponent } from './components/payment_method/delete-payment-method/delete-payment-method.component';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MenuNutritionistComponent } from './menu-nutritionist/menu-nutritionist.component';
+import { ProfileNutritionistComponent } from './profile-nutritionist/profile-nutritionist.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +113,12 @@ import { DeletePaymentMethodComponent } from './components/payment_method/delete
     ListPaymentMethodComponent,
     CreatePaymentMethodComponent,
     UpdatePaymentMethodComponent,
-    DeletePaymentMethodComponent
+    DeletePaymentMethodComponent,
+    LoginComponent,
+    MenuComponent,
+    ProfileComponent,
+    MenuNutritionistComponent,
+    ProfileNutritionistComponent
   ],
   imports: [
     BrowserModule,
