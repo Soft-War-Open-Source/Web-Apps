@@ -18,11 +18,4 @@ export class DeleteClientComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  deleteClient(){
-    this.clientService.deleteClient(this.id)
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.id = 0;
-    this.router.navigate(['delete-client'])
-  }
 }
