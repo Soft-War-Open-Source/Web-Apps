@@ -82,7 +82,7 @@ const routes: Routes = [
 
   {path: '', redirectTo:'profesional_profile', pathMatch:'full'},
   {path: 'listprofessionalprofiles', component: ListClientComponent},
-  {path: 'newprofessionalprofile', component: CreateClientComponent},
+  {path: 'newprofessionalprofile', component: CreateProfesionalProfileComponent},
   {path: 'updateprofessionalprofile/:id', component: UpdateClientComponent},
   {path: 'searchprofessionalprofile', component: FindClientComponent},
   {path: 'deleteprofessionalprofile', component: DeleteAppointmentComponent},
@@ -102,9 +102,9 @@ const routes: Routes = [
   {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
   {path: '', redirectTo:'specialty', pathMatch:'full'},
-  {path: 'listclients', component: ListClientComponent},
-  {path: 'newclient', component: CreateClientComponent},
-  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'listspecialty', component: ListSpecialtyComponent},
+  {path: 'newspecialty', component: CreateSpecialtyComponent},
+  {path: 'updatespecialty/:id', component: UpdateSpecialtyComponent},
   {path: 'searchclient', component: FindClientComponent},
   {path: 'deleteappointment', component: DeleteAppointmentComponent},
 
