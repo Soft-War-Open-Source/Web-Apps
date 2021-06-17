@@ -24,6 +24,5 @@ export class CreateClientComponent implements OnInit {
     this.clientService.createClient(this.client)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.client = new Client();
-    this.router.navigate(['new-client']);
   }
 }
