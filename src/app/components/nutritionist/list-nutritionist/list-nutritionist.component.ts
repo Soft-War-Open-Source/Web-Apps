@@ -21,9 +21,7 @@ export class ListNutritionistComponent implements OnInit {
     private nutritionisService: NutritionistService) { }
 
   ngOnInit(): void {
-    
     this.loadDataNutritionist();
-    
   }
   
   loadDataNutritionist(){

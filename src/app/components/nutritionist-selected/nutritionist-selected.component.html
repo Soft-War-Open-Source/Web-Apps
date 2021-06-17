@@ -1,14 +1,12 @@
-<div style="display: flex; width: 100%; border: 1px solid red; justify-content: space-evenly;">
+<div style="display: flex; width: 100%; justify-content: space-evenly;">
     <div class="card " style="width: 14rem; border: 1px solid blue;">
-        <div class="card " style="width: 14rem; border: 1px solid red;">
+        <div class="card " style="width: 14rem;">
             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
             <div class="text-center" >
-                <p class="card-text">NOMBRE</p>
-                <p class="card-text">CD NUMBER</p>
-                <p class="card-text">CORREO ELECTRONICO</p>
-                <p class="card-text">DESCRIPTION: </p>
-                <p class="card-text">**********************************************</p>
-                <p class="card-text">CALIFICACION</p>
+                <p class="card-text">{{ nutritionists[0].firstName }} {{ nutritionists[0].lastName }}</p>
+                <p class="card-text">CNP: {{ nutritionists[0].cnpNumber }}</p>
+                <p class="card-text">Email: {{ nutritionists[0].email }}</p>
+                <p class="card-text">Calificación</p>
                 <form>
                     <p class="clasificacion">
                       <input id="radio1" type="radio" name="estrellas" value="5">
@@ -31,25 +29,29 @@
         <h3 class="text-center">HORARIOS DISPONIBLES</h3>
         <br>    
         <!--aqui poner las varibles que quieres mostrar  {{ variable.varible }} {{ variable.varible }} {{ variable.varible }}-->
-        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;" >
+        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;" 
+        onClick="window.location.href='new-appointment';">
             <span>2021-05-08</span>
             <span>01:05:28.275</span>
             <span>+00:00</span>
         </button>
         <br> 
-        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;" >
+        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;"
+        onClick="window.location.href='new-appointment';">
             <span>2021-05-08</span>
             <span>01:05:28.275</span>
             <span>+00:00</span>
         </button>
         <br> 
-        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;" >
+        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;"
+        onClick="window.location.href='new-appointment';">
             <span>2021-05-08</span>
             <span>01:05:28.275</span>
             <span>+00:00</span>
         </button>
         <br> 
-        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;" >
+        <button type="button" class="btn btn-outline-success" style="width: 40rem; display: flex; justify-content: space-evenly;"
+        onClick="window.location.href='new-appointment';">
             <span>2021-05-08</span>
             <span>01:05:28.275</span>
             <span>+00:00</span>

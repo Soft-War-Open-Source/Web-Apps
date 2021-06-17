@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Nutritionist } from 'src/app/model/nutritionist';
+import { NutritionistService } from 'src/app/services/nutritionist.service';
 
 @Component({
   selector: 'app-nutritionist-selected',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NutritionistSelectedComponent implements OnInit {
 
-  constructor() { }
+  id: number = 1;
+  nutritionists: Nutritionist[]=[];
+
+  constructor(private router: Router,
+    private nutritionistService: NutritionistService) { }
 
   ngOnInit(): void {
+    this.loadDataNutritionist();
   }
 
+  loadDataNutritionist(){
+    this.searchNutritionistbyId();
+  }
+
+  searchNutritionistbyId(){
+    this.nutritionistService.getNutritionistById(this.id)
+    .subscribe(nutritionist=>this.nutritionists.push(nutritionist))
+  }
 }
