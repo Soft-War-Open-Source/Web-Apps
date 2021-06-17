@@ -1,0 +1,58 @@
+<!--
+
+<br/>
+<h2>Listado de Customers</h2>
+<br/>
+<div>
+    <form class="row g-3" (ngSubmit)="searchCustomerByLastName()">
+        <div class="col-auto">
+            <label class= "form control plaintext" for="lastName">LastName</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="lastName" 
+            name="lastName" required [(ngModel)]="lastName"
+            placeholder="Search Customer by LastName"/>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
+</div>
+
+<br/>
+<table class="table table-striped">
+    <thead class="thead_dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let customer of customers">
+            <tr>
+                <th scope ="row">{{ customer.id }}</th>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.dni }}</td>
+                <td>{{ customer.address }}</td>
+                <td>{{ customer.phone }}</td>
+                <td>{{ customer.email }}</td>
+                <td>
+                    <button type="submit" (click)='deleteCustomer(customer)' class="btn btn-danger">
+                        Delete
+                    </button>
+                    <button type="submit" (click)='updateCustomer(customer)' class="btn btn-primary">
+                        Update
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+-->
