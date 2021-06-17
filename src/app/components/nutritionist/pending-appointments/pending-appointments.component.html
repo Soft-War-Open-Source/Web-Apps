@@ -1,1 +1,31 @@
-<p>pending-appointments works!</p>
+<br/>
+<h2>Listado de Specialty</h2>
+<br/>
+<div>
+</div>
+<br/>
+
+    <table class="table table-striped">
+        <thead class="thead_dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">InstitutionName</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+                <tr>
+                    <th scope="row">{{ appointment.id }}</th>
+                    <td>{{appointment.nutritionist}}</td>
+                    <td>{{appointment.createdAt}}</td>
+                    <td>
+                        <button type="submit" (click)='deleteAppointment(appointment)' class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+           
+        </tbody>
+    </table>
+
+
+
