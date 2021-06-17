@@ -23,6 +23,16 @@ export class ListRecommendationComponent implements OnInit {
     this.loadDataRecommendation();
   }
 
+  loadDataRecommendation(){
+  }
+
+  deleteRecommendation(recommendation:Recommendation){
+  }
+
+  updateRecommendation(recommendation: Recommendation){
+    this.router.navigate(['update-recommendation', recommendation.id])
+  }
+
 }
 
 
@@ -31,29 +41,7 @@ export class ListRecommendationComponent implements OnInit {
 
 
   
-  loadDataRecommendation(){
-    this.searchRecommendationById();
-    this.searchRecommendationByName();
-  }
-
-  deleteRecommendation(recommendation:Recommendation){
-    this.deleteRecommendation();
-
-    this.recommendationService.deleteClient(recommendation.id)
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-
-    this.router.navigate(['list-recommendations'])
-  }
-
-  updateRecommendation(recommendation: Recommendation){
-    this.router.navigate(['update-recommendation', recommendation.id])
-  }
-
-
-  deleteRecommendation()
-  {
-    /////////
-  }
+  
 
   
 

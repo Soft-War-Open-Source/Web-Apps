@@ -12,27 +12,32 @@ import { NutritionistService } from 'src/app/services/nutritionist.service';
 })
 export class CreateRecipeComponent implements OnInit {
 
-  recipe: Recipe = new Recipe();
-  nutritionist: Nutritionist=new Nutritionist();
+  recipes: Recipe[]=[];
+  nutritionists: Nutritionist[]=[];
   nutritionist_id: number = 1;
 
-  constructor(private route: ActivatedRoute,private router: Router,private recipeService : RecipeService,private nutritionistService : NutritionistService) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private recipeService : RecipeService,
+    private nutritionistService : NutritionistService) { }
 
   ngOnInit(): void {
+    this.recipes.push(new Recipe());
+    this.assignNutritionist();
   }
 
-  assignNutritionist(id:number){
-    this.nutritionistService.getNutritionistById(id).subscribe(datos=>this.nutritionist=datos,error=>console.log(error));
-    console.log(this.nutritionist);
+  assignNutritionist(){
+    this.nutritionistService.getNutritionistById(this.nutritionist_id)
+    .subscribe(datos=>this.nutritionists.push(datos));
   }
   
-
   insertRecipe(){
-    this.assignNutritionist(this.nutritionist_id);
-    this.recipe.nutritionist = this.nutritionist;
-    this.recipeService.createRecipe(this.recipe).subscribe(datos=>console.log(datos),error=>console.log(error));
-    this.recipe = new Recipe();
-    this.router.navigate(['newrecipe']);
+    this.recipes[0].nutritionist = this.nutritionists[0];
+    this.recipeService.createRecipe(this.recipes[0])
+    .subscribe(datos=>console.log(datos), error=>console.log(error));
+    this.recipes = [];
+    this.nutritionists = [];
+    this.router.navigate(['list-recipes']);
   }
 
 }

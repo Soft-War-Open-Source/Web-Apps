@@ -21,7 +21,7 @@ export class ListPaymentMethodComponent implements OnInit {
 
   loadDataPaymentMethods(){
     this.paymentMethodService.getPaymentMethodList()
-    .subscribe(paymentsMethods=>this.paymentMethods = this.paymentMethods);
+    .subscribe(paymentMethods=>this.paymentMethods = paymentMethods);
   }
 
   deletePaymentMethod(payment_method: PaymentMethod){
@@ -34,14 +34,14 @@ export class ListPaymentMethodComponent implements OnInit {
   }
 
   searchPaymentMethodById(){
-    if(this.id <= 0){
+    if(this.id >= 0){
       this.paymentMethodService.getPaymentMethodById(this.id)
       .subscribe(paymentMethods=>this.paymentMethods = paymentMethods);
     }
   }
 
   searchPaymentMethodByClient(){
-    if(this.client_id <= 0){
+    if(this.client_id >= 0){
       this.paymentMethodService.getPaymentMethodByClient(this.client_id)
       .subscribe(paymentMethods=>this.paymentMethods = paymentMethods);
     }

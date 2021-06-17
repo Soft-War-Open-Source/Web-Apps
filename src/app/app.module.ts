@@ -36,6 +36,7 @@ import { MenuNutritionistComponent } from './menu-nutritionist/menu-nutritionist
 import { AvailableNutritionistsComponent } from './components/available-nutritionists/available-nutritionists.component';
 import { NutritionistSelectedComponent } from './components/nutritionist-selected/nutritionist-selected.component';
 import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
+import { UpdateNutritionistComponent } from './components/nutritionist/update-nutritionist/update-nutritionist.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { NewAppointmentComponent } from './components/new-appointment/new-appoin
     MenuNutritionistComponent,
     AvailableNutritionistsComponent,
     NutritionistSelectedComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    UpdateNutritionistComponent
   ],
   imports: [
     BrowserModule,

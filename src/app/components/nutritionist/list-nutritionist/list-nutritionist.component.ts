@@ -25,14 +25,18 @@ export class ListNutritionistComponent implements OnInit {
     this.loadDataNutritionist();
     
   }
-
+  
+  loadDataNutritionist(){
+    this.searchNutritionistbyId();
+    this.searchSpecialtybyId();
+  }
 
   deleteNutritionist(nutritionist: Nutritionist){
     this.nutritionisService.deleteNutritionist(nutritionist.id)
     .subscribe(data=>{this.loadDataSpecialtys();})
   }
   updateNutritionist(nutritionist: Nutritionist){
-    this.router.navigate(['updatespecialty', nutritionist.id]);
+    this.router.navigate(['update-nutritionist', nutritionist.id]);
   }
   searchNutritionistbyId(){
     if(this.id == 1  ){
@@ -47,6 +51,9 @@ export class ListNutritionistComponent implements OnInit {
     .subscribe(specialtys=>this.specialtys=specialtys);
   }
 
+  insertSpecialty(){
+    this.router.navigate(['newspecialty']);
+  }
   deleteSpecialty(specialty: Specialty){
     this.specialtyService.deleteSpecialty(specialty.id)
     .subscribe(data=>{this.loadDataSpecialtys();})
@@ -60,10 +67,5 @@ export class ListNutritionistComponent implements OnInit {
       .subscribe(specialty=>this.specialty = specialty)
      
     }
-    
-  }
-  loadDataNutritionist(){
-    this.searchNutritionistbyId();
-    this.searchSpecialtybyId();
   }
 }

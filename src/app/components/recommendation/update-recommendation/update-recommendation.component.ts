@@ -19,11 +19,15 @@ export class UpdateRecommendationComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this. recommendation.getRecommendationById(this.id)
+    this.recommendationService.getRecommendationById(this.id)
     .subscribe(datos=>{
       console.log(datos)
       this. recommendation = datos;
     }, error=>console.log(error));
+  }
+
+  updateRecommendation(){
+
   }
 
 }
