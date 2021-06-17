@@ -1,11 +1,14 @@
 
 <div style="display: flex; width: 100%; border: 1px solid red; justify-content: space-evenly;" >
-    <div class="card " style="width: 10rem;" *ngFor="let card of cards">
+    <div class="card " style="width: 10rem;" *ngFor="let nutritionist of nutritionists">
         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
         <div class="text-center" >
-            <p class="card-text">NOMBRE</p>
-            <p class="card-text">CD NUMBER</p>
-            <p class="card-text">CORREO ELECTRONICO</p>
+            <p class="card-text">{{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
+            <p class="card-text">{{ nutritionist.cnpNumber }} NUMBER</p>
+            <p class="card-text">{{ nutritionist.email }}</p>
+            <button type="submit" class="btn btn-primary" onClick="window.location.href='nutritionist-selected';">
+                Ver horarios disponibles
+            </button>
         </div>
     </div>
 </div>
