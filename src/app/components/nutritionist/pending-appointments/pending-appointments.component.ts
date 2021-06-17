@@ -10,35 +10,19 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class PendingAppointmentsComponent implements OnInit {
 
-  id: number = 2;
-
-  appointment: Appointment = new Appointment();
+  id: number = 1;
   appointments: Appointment[]=[];
+
   constructor(private router: Router,
-    private appointmentService: AppointmentService) { }
+  private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
-    this.searchByNutritionist();
-    
-   
-  }
-  
-  searchByNutritionist(){
-    if(this.id == 2){
-      this.appointment.nutritionist.id = this.id ;
-      this.appointmentService.getAppointmentByNutritionist(this.appointment.nutritionist.id)
-      .subscribe(datos=>{
-       console.log(datos)
-       this.appointment = datos;
-     }, error=>console.log(error))
-     this.id = 0;
-    }
+    this.loadDataAppointments();
   }
 
-  deleteAppointment(appointment: Appointment){
-    this.appointmentService.deleteAppointment(appointment.id)
-    .subscribe(data=>{this.searchByNutritionist();})
+  loadDataAppointments(){
+    this.appointmentService.getAppointmentByNutritionist(this.id)
+    .subscribe(appointments=>this.appointments=appointments);
   }
-  
   
 }

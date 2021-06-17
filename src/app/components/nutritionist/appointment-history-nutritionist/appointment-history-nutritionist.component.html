@@ -1,5 +1,5 @@
 <br/>
-<h2>Listado de Appointments</h2>
+<h2>Historial de asesorías</h2>
 <br/>
 <div>
 </div>
@@ -8,22 +8,21 @@
     <table class="table table-striped">
         <thead class="thead_dark">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">InstitutionName</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Fecha de la asesoría</th>
+                <th scope="col">Dieta</th>
+                <th scope="col">Anotaciones</th>
             </tr>
         </thead>
         <tbody>
-         
+            <ng-container *ngFor="let appointment of appointments">
                 <tr>
-                    <th scope="row">{{ appointment.id }}</th>
-                    <td>{{ appointment.nutritionistNotes}} </td>
-                    <td>XDXDXDXD</td>
-                    <td>
-                        
-                    </td>
+                    <td>{{ appointment.client.firstName }} {{ appointment.client.lastName }}</td>
+                    <td>{{ appointment.appointmentDate }}</td>
+                    <td>{{ appointment.diet.description}}</td>
+                    <td>{{ appointment.nutritionistNotes}}</td>
                 </tr>
-           
+            </ng-container>
         </tbody>
     </table>
 

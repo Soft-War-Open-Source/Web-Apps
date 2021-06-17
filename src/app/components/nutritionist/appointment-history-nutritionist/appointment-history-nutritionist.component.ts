@@ -12,29 +12,19 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class AppointmentHistoryNutritionistComponent implements OnInit {
 
-  id: number = 2;
-
-  appointment: Appointment = new Appointment();
+  id: number = 1;
   appointments: Appointment[]=[];
+
   constructor(private router: Router,
-    private appointmentService: AppointmentService) { }
+  private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
-    this.searchByNutritionist();
-    
-   
+    this.loadDataAppointments();
   }
-  
-  searchByNutritionist(){
-    if(this.id == 2){
-      this.appointment.nutritionist.id = this.id ;
-      this.appointmentService.getAppointmentByNutritionist(this.appointment.nutritionist.id)
-      .subscribe(datos=>{
-       console.log(datos)
-       this.appointment = datos;
-     }, error=>console.log(error))
-     this.id = 0;
-    }
+
+  loadDataAppointments(){
+    this.appointmentService.getAppointmentByNutritionist(this.id)
+    .subscribe(appointments=>this.appointments=appointments);
   }
   
 }

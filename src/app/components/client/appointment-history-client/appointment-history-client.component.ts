@@ -10,33 +10,19 @@ import { AppointmentService } from 'src/app/services/appointment.service';
   styleUrls: ['./appointment-history-client.component.css']
 })
 export class AppointmentHistoryClientComponent implements OnInit {
-
-
   
   id: number = 1;
-  appointment: Appointment = new Appointment();
   appointments: Appointment[]=[];
-
 
   constructor(private router: Router,
   private appointmentService: AppointmentService) { }
 
-
   ngOnInit(): void {
-    this.searchByClient();
-    
-   
+    this.loadDataAppointments();
   }
-  
-  searchByClient(){
-    if(this.id == 1){
-      this.appointment.client.id = this.id ;
-      this.appointmentService.getAppointmentByClient(this.appointment.client.id)
-      .subscribe(datos=>{
-       console.log(datos)
-       this.appointment = datos;
-     }, error=>console.log(error))
-     this.id = 0;
-    }
+
+  loadDataAppointments(){
+    this.appointmentService.getAppointmentByClient(this.id)
+    .subscribe(appointments=>this.appointments=appointments);
   }
 }
