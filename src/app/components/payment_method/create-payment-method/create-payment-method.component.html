@@ -1,1 +1,77 @@
-<p>create-payment-method works!</p>
+<form class="text-center border border-light p-5 col-lg-6 offset-lg-3" (ngSubmit)="insertPaymentMethod()">
+
+    <p class="h4 mb-4">Nuevo método de pago</p>
+
+    <input type="hidden" id="RecipeId" name="RecipeId"
+     required [(ngModel)]="payments[0].id">
+
+    <input type="text" class="form-control" id="card_number"
+    name="card_number" placeholder="5134-5264-4"
+    required [(ngModel)]="payments[0].cardNumber"/>
+    <br>
+
+    <input type="text" class="form-control" id="cardType"
+    name="cardType" placeholder="Card type"
+    required [(ngModel)]="payments[0].cardType"/>
+    <br>
+
+    <input type="text" class="form-control" id="expirationDateMonth"
+    name="expirationDateMonth" placeholder="Expiration Date Month"
+    required [(ngModel)]="payments[0].expirationDateMonth"/>
+    <br>
+
+    <input type="text" class="form-control" id="expirationDateYear"
+    name="expirationDateYear" placeholder="Expiration Date Year"
+    required [(ngModel)]="payments[0].expirationDateYear"/>
+    <br>
+
+    <input type="text" class="form-control" id="securityCode"
+    name="securityCode" placeholder="Security code"
+    required [(ngModel)]="payments[0].securityCode"/>
+    <br>
+
+    <input type="text" class="form-control" id="ownerFirstname"
+    name="ownerFirstname" placeholder="Firstname"
+    required [(ngModel)]="payments[0].ownerFirstname"/>
+    <br>
+    
+    <input type="text" class="form-control" id="Lastname"
+    name="Lastname" placeholder="Lastname"
+    required [(ngModel)]="payments[0].ownerLastname"/>
+    <br>
+
+    <input type="text" class="form-control" id="country"
+    name="country" placeholder="Country"
+    required [(ngModel)]="payments[0].country"/>
+    <br>
+
+    <input type="text" class="form-control" id="city"
+    name="city" placeholder="City"
+    required [(ngModel)]="payments[0].city"/>
+    <br>
+
+    <input type="text" class="form-control" id="billingAddress"
+    name="billingAddress" placeholder="Billing address"
+    required [(ngModel)]="payments[0].billingAddress"/>
+    <br>
+
+    <input type="text" class="form-control" id="billingAddress2"
+    name="billingAddress2" placeholder="Billing address line 2"
+    required [(ngModel)]="payments[0].billingAddressLine2"/>
+    <br>
+
+    <input type="text" class="form-control" id="postalCode"
+    name="postalCode" placeholder="postal code"
+    required [(ngModel)]="payments[0].postalCode"/>
+    <br>
+
+    <input type="text" class="form-control" id="phoneNumber"
+    name="billinphoneNumbergAddress2" placeholder="Phone number"
+    required [(ngModel)]="payments[0].phoneNumber"/>
+    <br>
+
+    <button type="submit" class="btn btn-success" onClick="window.location.href='list-payment-methods';">
+        Save
+    </button>
+
+</form>

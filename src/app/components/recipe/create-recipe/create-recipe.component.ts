@@ -38,7 +38,7 @@ export class CreateRecipeComponent implements OnInit {
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.recipes = [];
     this.nutritionists = [];
-    this.router.navigate(['pusblished-recipes']);
+    this.router.navigate(['published-recipes']);
   }
 
 }
