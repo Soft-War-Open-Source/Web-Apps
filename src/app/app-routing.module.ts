@@ -31,6 +31,12 @@ import { MenuNutritionistComponent } from './menu-nutritionist/menu-nutritionist
 import { AvailableNutritionistsComponent } from './components/available-nutritionists/available-nutritionists.component';
 import { NutritionistSelectedComponent } from './components/nutritionist-selected/nutritionist-selected.component';
 import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
+import { UpdateNutritionistComponent } from './components/nutritionist/update-nutritionist/update-nutritionist.component';
+import { PublishedRecommendationsComponent } from './components/nutritionist/published-recommendations/published-recommendations.component';
+import { PublishedRecipesComponent } from './components/nutritionist/published-recipes/published-recipes.component';
+import { AppointmentHistoryNutritionistComponent } from './components/nutritionist/appointment-history-nutritionist/appointment-history-nutritionist.component';
+import { PendingAppointmentsComponent } from './components/nutritionist/pending-appointments/pending-appointments.component';
+import { AppointmentHistoryClientComponent } from './components/client/appointment-history-client/appointment-history-client.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -44,6 +50,7 @@ const routes: Routes = [
   {path: 'list-clients', component: ListClientComponent},
   {path: 'new-client', component: CreateClientComponent},
   {path: 'update-client/:id', component: UpdateClientComponent},
+  {path: 'appointments-history-client', component: AppointmentHistoryClientComponent},
 
   {path: '', redirectTo:'diet', pathMatch:'full'},
   {path: 'list-diets', component: ListDietComponent},
@@ -53,6 +60,11 @@ const routes: Routes = [
   {path: '', redirectTo:'nutritionist', pathMatch:'full'},
   {path: 'list-nutritionists', component: ListNutritionistComponent},
   {path: 'new-nutritionist', component: CreateNutritionistComponent},
+  {path: 'update-nutritionist/:id', component: UpdateNutritionistComponent},
+  {path: 'published-recommendations', component: PublishedRecommendationsComponent},
+  {path: 'published-recipes', component: PublishedRecipesComponent},
+  {path: 'pending-appointments', component: PendingAppointmentsComponent},
+  {path: 'appointments-history-nutritionist', component: AppointmentHistoryNutritionistComponent},
 
   {path: '', redirectTo:'profesional_profile', pathMatch:'full'},
   {path: 'listprofessionalprofiles', component: ListClientComponent},
@@ -60,8 +72,8 @@ const routes: Routes = [
   {path: 'updateprofessionalprofile/:id', component: UpdateClientComponent},
 
   {path: '', redirectTo:'recipe', pathMatch:'full'},
-  {path: 'listrecipes', component: ListRecipeComponent},
-  {path: 'newrecipe', component: CreateRecipeComponent},
+  {path: 'list-recipes', component: ListRecipeComponent},
+  {path: 'new-recipe', component: CreateRecipeComponent},
 
   {path: '', redirectTo:'recommendation', pathMatch:'full'},
   {path: 'listclients', component: ListClientComponent},

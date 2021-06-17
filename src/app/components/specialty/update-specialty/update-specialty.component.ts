@@ -10,7 +10,7 @@ import { SpecialtyService } from 'src/app/services/specialty.service';
 })
 export class UpdateSpecialtyComponent implements OnInit {
 
-  id: number = 0;
+  id: number = 1;
   specialty: Specialty= new Specialty();
 
   constructor(private route: ActivatedRoute,
@@ -30,7 +30,7 @@ export class UpdateSpecialtyComponent implements OnInit {
     this.specialtyService.updateSpecialty(this.id, this.specialty)
     .subscribe(datos =>{
       console.log(datos)
-      this.router.navigate(['listspecialty']);
+      this.router.navigate(['list-nutritionists']);
     }, error=>console.log(error));
     this.specialty = new Specialty();
   }

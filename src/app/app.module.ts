@@ -36,6 +36,12 @@ import { MenuNutritionistComponent } from './menu-nutritionist/menu-nutritionist
 import { AvailableNutritionistsComponent } from './components/available-nutritionists/available-nutritionists.component';
 import { NutritionistSelectedComponent } from './components/nutritionist-selected/nutritionist-selected.component';
 import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
+import { UpdateNutritionistComponent } from './components/nutritionist/update-nutritionist/update-nutritionist.component';
+import { PublishedRecommendationsComponent } from './components/nutritionist/published-recommendations/published-recommendations.component';
+import { PublishedRecipesComponent } from './components/nutritionist/published-recipes/published-recipes.component';
+import { AppointmentHistoryNutritionistComponent } from './components/nutritionist/appointment-history-nutritionist/appointment-history-nutritionist.component';
+import { PendingAppointmentsComponent } from './components/nutritionist/pending-appointments/pending-appointments.component';
+import { AppointmentHistoryClientComponent } from './components/client/appointment-history-client/appointment-history-client.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +76,13 @@ import { NewAppointmentComponent } from './components/new-appointment/new-appoin
     MenuNutritionistComponent,
     AvailableNutritionistsComponent,
     NutritionistSelectedComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    UpdateNutritionistComponent,
+    PublishedRecommendationsComponent,
+    PublishedRecipesComponent,
+    AppointmentHistoryNutritionistComponent,
+    PendingAppointmentsComponent,
+    AppointmentHistoryClientComponent
   ],
   imports: [
     BrowserModule,

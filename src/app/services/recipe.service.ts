@@ -36,8 +36,8 @@ export class RecipeService {
     return this.http.get(`${this.baseURL}/searchByName/${name}`);
   }
 
-  getRecipeByNutritionist(nutritionist:string): Observable<any>{
-    return this.http.get(`${this.baseURL}/searchRecipeByNutritionistId/${nutritionist}`);
+  getRecipeByNutritionist(nutritionist_id: number): Observable<any>{
+    return this.http.get(`${this.baseURL}/searchRecipeByNutritionistId/${nutritionist_id}`);
   }
 
   

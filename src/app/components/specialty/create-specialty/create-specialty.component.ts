@@ -23,6 +23,6 @@ export class CreateSpecialtyComponent implements OnInit {
     this.specialtyService.createSpecialty(this.specialty)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.specialty = new Specialty();
-    this.router.navigate(['newspecialty']);
+    this.router.navigate(['list-nutritionists']);
   }
 }
