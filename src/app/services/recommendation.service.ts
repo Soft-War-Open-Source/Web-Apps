@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RecommendationService {
 
-  private baseURL= 'http://localhost:8080/api/recommendations';
+  private baseURL= 'http://localhost:8080/api/recommendation';
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +31,11 @@ export class RecommendationService {
     return this.http.get(`${this.baseURL}/${id}`)
   }
 
-  getRecommendationByName(lastName: string) : Observable<any>{
+  getRecommendationByName(name: string) : Observable<any>{
     return this.http.get(`${this.baseURL}/searchByName/${name}`)
+  }
+
+  getRecommendationByNutritionist(nutritionist_id: number): Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByNutritionistId/${nutritionist_id}`);
   }
 }

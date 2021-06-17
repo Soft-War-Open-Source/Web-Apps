@@ -19,7 +19,8 @@ export class CreateRecipeComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private recipeService : RecipeService,
-    private nutritionistService : NutritionistService) { }
+    private nutritionistService : NutritionistService) {
+    }
 
   ngOnInit(): void {
     this.recipes.push(new Recipe());
@@ -37,7 +38,7 @@ export class CreateRecipeComponent implements OnInit {
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.recipes = [];
     this.nutritionists = [];
-    this.router.navigate(['list-recipes']);
+    this.router.navigate(['pusblished-recipes']);
   }
 
 }

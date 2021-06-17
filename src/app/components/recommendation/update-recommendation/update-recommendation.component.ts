@@ -15,19 +15,24 @@ export class UpdateRecommendationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private recommendationService: RecommendationService) { }
+    private recommendationService : RecommendationService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.recommendationService.getRecommendationById(this.id)
     .subscribe(datos=>{
       console.log(datos)
-      this. recommendation = datos;
+      this.recommendation = datos;
     }, error=>console.log(error));
   }
 
   updateRecommendation(){
-
+    this.recommendationService.updateRecommendation(this.id, this.recommendation)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.router.navigate(['published-recipes']);
+    }, error=>console.log(error));
+    this.recommendation = new Recommendation();
   }
 
 }

@@ -11,37 +11,31 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class PublishedRecipesComponent implements OnInit {
 
   lastName: string ='';
-  nutritionist_id: number = 0;
+  nutritionist_id: number = 1;
   recipes: Recipe[]=[];
 
   constructor(private router: Router,
      private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    //this.loadDataRecipes();
+    this.loadDataRecipes();
   }
-  /*
+  
   loadDataRecipes(){
     this.recipeService.getRecipeByNutritionist(this.nutritionist_id)
     .subscribe(recipes=>this.recipes=recipes);
   }
 
   deleteRecipe(id: number){
-    this.customerService.deleteCustomer(customer.id)
-    .subscribe(data=>{this.loadDataCustomers();})
+    this.recipeService.deleteRecipe(id)
+    .subscribe(data=>{this.loadDataRecipes();})
   }
 
-  updateCustomer(customer: Customer){
-    this.router.navigate(['update', customer.id])//Se irá hacia el actualizar ('update')
+  updateRecipe(recipe: Recipe){
+    this.router.navigate(['update-recipe', recipe.id])
   }
 
-  searchCustomerByLastName(){
-    if(this.lastName.length!=0){
-      this.customerService.getCustomerByLastName(this.lastName)
-      .subscribe(customers=>this.customers=customers);
-    }
-    else
-      this.loadDataCustomers();
+  insertRecipe(){
+    this.router.navigate(['new-recipe'])
   }
-  */
 }

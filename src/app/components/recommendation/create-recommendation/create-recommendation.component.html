@@ -1,26 +1,24 @@
-<br/>
 <form class="text-center border border-light p-5 col-lg-6 offset-lg-3" (ngSubmit)="insertRecommendation()">
 
-    <p class="h4 mb-4">Sign up</p>
+    <p class="h4 mb-4">Publicación de recomendación</p>
 
-    <input type="hidden" id="RecommendationId" name="RecommendationId"
-    required [(ngModel)]="recommendation.id">
+    <input type="hidden" id="RecipeId" name="RecipeId"
+     required [(ngModel)]="recommendations[0].id">
 
-    <input type="text" class="form-control" id="name" 
-    name= "name" placeholder="Name" 
-    required [(ngModel)]="recommendation.name" />
+    <input type="text" class="form-control" id="name"
+    name="name" placeholder="Name"
+    required [(ngModel)]="recommendations[0].name"/>
+
     <br>
     
     <input type="text" class="form-control" id="description" 
-    name= "description" placeholder="Description" 
-    required [(ngModel)]="recommendation.description" />
+    name="description" placeholder="Description"
+    required [(ngModel)]="recommendations[0].description"/>
 
     <br>
 
-
-
-    <button type="submit" class="btn btn-success" onClick="window.location.href='login';">
+    <button type="submit" class="btn btn-success" onClick="window.location.href='published-recommendations';">
         Save
     </button>
 
-  </form>
+</form>

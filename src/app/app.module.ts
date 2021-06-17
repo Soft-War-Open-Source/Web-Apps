@@ -42,6 +42,7 @@ import { PublishedRecipesComponent } from './components/nutritionist/published-r
 import { AppointmentHistoryNutritionistComponent } from './components/nutritionist/appointment-history-nutritionist/appointment-history-nutritionist.component';
 import { PendingAppointmentsComponent } from './components/nutritionist/pending-appointments/pending-appointments.component';
 import { AppointmentHistoryClientComponent } from './components/client/appointment-history-client/appointment-history-client.component';
+import { UpdateRecipeComponent } from './components/recipe/update-recipe/update-recipe.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { AppointmentHistoryClientComponent } from './components/client/appointme
     PublishedRecipesComponent,
     AppointmentHistoryNutritionistComponent,
     PendingAppointmentsComponent,
-    AppointmentHistoryClientComponent
+    AppointmentHistoryClientComponent,
+    UpdateRecipeComponent
   ],
   imports: [
     BrowserModule,

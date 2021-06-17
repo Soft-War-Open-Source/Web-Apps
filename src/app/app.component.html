@@ -330,153 +330,29 @@
 
 <div style="text-align: center;">
   <h1>
-    {{ title }} !!
+    {{ title }}
   </h1>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" id="navbarLogin" role="button" aria-expanded="false" href="login">
+          <a class="nav-link active" id="navbarHome" role="button" aria-expanded="false" href="login">
             Home
           </a>
         </li>
-
-
         <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Client
+          <a class="nav-link active" id="navbarMenu" role="button" aria-expanded="false" href="menu">
+            Menu usuario
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Nutritionist
+          <a class="nav-link active" id="navbarMenu" role="button" aria-expanded="false" href="menu-nutritionist">
+            Menu nutricionista
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-nutritionists">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Recipe
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Recommendation
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Appointment
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Diet
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Professional Profile
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="newprofessionalprofile">Nuevo professionalpofile</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Specialty
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="listspecialty">Listar specialty</a></li>
-            <li><a class="dropdown-item" routerLink="newspecialty">Nuevo Specialty</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Payment Method
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Bill
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="list-clients">Listar clientes</a></li>
-            <li><a class="dropdown-item" routerLink="new-client">Nuevo cliente</a></li>
-            <li><a class="dropdown-item" routerLink="update-client/:id">Actualizar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="search-client">Buscar cliente</a></li>
-            <li><a class="dropdown-item" routerLink="delete-client">Borrar cliente</a></li>
-          </ul>
-        </li>
-
-        
-        
       </ul>
     </div>
   </div>

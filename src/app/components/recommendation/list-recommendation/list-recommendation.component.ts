@@ -11,26 +11,39 @@ import { RecommendationService } from 'src/app/services/recommendation.service';
   styleUrls: ['./list-recommendation.component.css']
 })
 export class ListRecommendationComponent implements OnInit {
-  id: number = 1;
-  recommendation: Recommendation = new Recommendation();
-  
-  
 
-  constructor(private router: Router, 
-    private recommendationService: RecommendationService) { }
+  name: string='';
+  recommendations: Recommendation[]=[];
+
+  constructor(private router: Router,
+     private recommendationService: RecommendationService) { }
 
   ngOnInit(): void {
-    this.loadDataRecommendation();
+    this.loadDataRecommendations();
   }
 
-  loadDataRecommendation(){
+  loadDataRecommendations(){
+    this.recommendationService.getRecommendationList()
+    .subscribe(recommendations=>this.recommendations=recommendations);
   }
 
-  deleteRecommendation(recommendation:Recommendation){
+  deleteRecipe(recommendation: Recommendation){
+    this.recommendationService.deleteRecommendation(recommendation.id)
+    .subscribe(data=>{this.loadDataRecommendations();})
   }
 
-  updateRecommendation(recommendation: Recommendation){
-    this.router.navigate(['update-recommendation', recommendation.id])
+  updateRecipe(recommendation: Recommendation){
+    this.router.navigate(['update-recommendation', recommendation.id]);
+  }
+
+  searchRecipeByName(){
+    if(this.name.length!=0){
+      this.recommendationService.getRecommendationByName(this.name)
+      .subscribe(recommendations=>this.recommendations=recommendations);
+    }
+    else{
+      this.loadDataRecommendations();
+    }
   }
 
 }

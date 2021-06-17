@@ -1,35 +1,38 @@
-<br/>
-<h2>Registro de Recipe</h2>
-<br/>
-<br/>
 <form class="text-center border border-light p-5 col-lg-6 offset-lg-3" (ngSubmit)="insertRecipe()">
 
-    <p class="h4 mb-4">Registro de Recipe</p>
+    <p class="h4 mb-4">Publicación de Receta</p>
 
-    <input type="hidden" id="RecipeId" name="RecipeId" required [(ngModel)]="recipes[0].id">
+    <input type="hidden" id="RecipeId" name="RecipeId"
+     required [(ngModel)]="recipes[0].id">
 
-    <br>
-
-    <label for="name" class="form-label">Name :</label>
-    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required [(ngModel)]="recipes[0].name"/>
+    <input type="text" class="form-control" id="name"
+    name="name" placeholder="Name"
+    required [(ngModel)]="recipes[0].name"/>
 
     <br>
     
     <label for="description">Description :</label>
-    <input type="text" class="form-control" id="description" name="description" placeholder="Description" required [(ngModel)]="recipes[0].descripcion"/>
+    <input type="text" class="form-control" id="description" 
+    name="description" placeholder="Description"
+    required [(ngModel)]="recipes[0].descripcion"/>
 
     <br>
 
     <label for="preparation">Preparation :</label>
-    <input type="text" class="form-control" id="preparation" name="preparation" placeholder="Preparation" required [(ngModel)]="recipes[0].preparation"/>
+    <input type="text" class="form-control" id="preparation"
+    name="preparation" placeholder="Preparation"
+    required [(ngModel)]="recipes[0].preparation"/>
 
     <br>
         
     <label for="ingredients">Ingredients :</label>
-    <input type="text" class="form-control" id="ingredients" name="ingredients" placeholder="Ingredients" required [(ngModel)]="recipes[0].ingredients"/>
-        
+    <input type="text" class="form-control" id="ingredients"
+    name="ingredients" placeholder="Ingredients"
+    required [(ngModel)]="recipes[0].ingredients"/>
     <br>
 
-    <button type="submit" class="btn btn-success">SAVE</button>
+    <button type="submit" class="btn btn-success" onClick="window.location.href='published-recipes';">
+        Save
+    </button>
 
 </form>

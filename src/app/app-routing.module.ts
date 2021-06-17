@@ -37,6 +37,7 @@ import { PublishedRecipesComponent } from './components/nutritionist/published-r
 import { AppointmentHistoryNutritionistComponent } from './components/nutritionist/appointment-history-nutritionist/appointment-history-nutritionist.component';
 import { PendingAppointmentsComponent } from './components/nutritionist/pending-appointments/pending-appointments.component';
 import { AppointmentHistoryClientComponent } from './components/client/appointment-history-client/appointment-history-client.component';
+import { UpdateRecipeComponent } from './components/recipe/update-recipe/update-recipe.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -74,11 +75,12 @@ const routes: Routes = [
   {path: '', redirectTo:'recipe', pathMatch:'full'},
   {path: 'list-recipes', component: ListRecipeComponent},
   {path: 'new-recipe', component: CreateRecipeComponent},
+  {path: 'update-recipe/:id', component: UpdateRecipeComponent},
 
   {path: '', redirectTo:'recommendation', pathMatch:'full'},
-  {path: 'listclients', component: ListClientComponent},
-  {path: 'newclient', component: CreateClientComponent},
-  {path: 'updateclient/:id', component: UpdateClientComponent},
+  {path: 'list-recommendations', component: ListRecommendationComponent},
+  {path: 'new-recommendation', component: CreateRecommendationComponent},
+  {path: 'update-recommendation/:id', component: UpdateRecommendationComponent},
 
   {path: '', redirectTo:'specialty', pathMatch:'full'},
   {path: 'listspecialty', component: ListSpecialtyComponent},

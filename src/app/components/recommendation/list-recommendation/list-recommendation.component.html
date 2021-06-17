@@ -1,44 +1,17 @@
-<br>
-<br>
-<div class="container">
-    <div class="main-body">
-          <!-- /Breadcrumb -->
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                    <div class="mt-3">
-                      <h4> {{recommendation.name}} </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        {{recommendation.description}} 
-                    </div>
-                  </div>
-                  <hr>
-                  <hr>
-                  <div class="d-grid gap-2">
-                    <a class="btn btn-success " (click)='updateRecommendation(recommendation)'>Actualizar</a>
-                    <a class="btn btn-success " (click)='deleteRecommendation(recommendation)'> Eliminar recomendacion</a>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-    </div>
-
+<br/>
+<h2>Recomendaciones</h2>
+<br/>
+<br/>
+<div class="contenedor row g-3" >
+<ng-container *ngFor="let recommendation of recommendations">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title-descripton">Nombre: </h5>
+      <h5 class="card-title-name">{{recommendation.name}}</h5>
+      <img src="https://tipsparatuviaje.com/wp-content/uploads/2020/03/lasana-comida.jpg" class="card-img-top" alt="">
+      <h6 class="card-title-descripton">Descripción: </h6>
+      <p class="card-text">{{recommendation.description}}</p>
+    </div>  
+  </div>
+</ng-container>
+</div>

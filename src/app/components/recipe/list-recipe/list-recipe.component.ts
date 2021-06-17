@@ -14,31 +14,34 @@ export class ListRecipeComponent implements OnInit {
   recipes: Recipe[]=[];
 
 
-  constructor(private router: Router, private recipeService: RecipeService) { }
+  constructor(private router: Router,
+     private recipeService: RecipeService) { }
 
   ngOnInit(): void {
     this.loadDataRecipes();
   }
 
   loadDataRecipes(){
-    this.recipeService.getRecipeList().subscribe(recipes=>this.recipes=recipes);
+    this.recipeService.getRecipeList()
+    .subscribe(recipes=>this.recipes=recipes);
   }
 
   deleteRecipe(recipe: Recipe){
-    this.recipeService.deleteRecipe(recipe.id).subscribe(data=>{this.loadDataRecipes();})
+    this.recipeService.deleteRecipe(recipe.id)
+    .subscribe(data=>{this.loadDataRecipes();})
   }
 
   updateRecipe(recipe:Recipe){
-    this.router.navigate(['actualizar',recipe.id]);
+    this.router.navigate(['update-recipe',recipe.id]);
   }
 
   searchRecipeByName(){
     if(this.name.length!=0){
-      this.recipeService.getRecipeByName(this.name).subscribe(recipes=>this.recipes=recipes);
+      this.recipeService.getRecipeByName(this.name)
+      .subscribe(recipes=>this.recipes=recipes);
     } 
     else{
       this.loadDataRecipes();
     }
   }
-
 }
