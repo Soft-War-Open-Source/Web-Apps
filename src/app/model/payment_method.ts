@@ -3,6 +3,7 @@ import { Client } from "./client";
 export class PaymentMethod {
     id: number;
     client: Client;
+    cardNumber: number;
     cardType: string;
     expirationDateMonth: number;
     expirationDateYear: number;
@@ -19,6 +20,7 @@ export class PaymentMethod {
     constructor(){
         this.id =0;
         this.client = new Client();
+        this.cardNumber = 0;
         this.cardType = "";
         this.expirationDateMonth = 0;
         this.expirationDateYear = 0;

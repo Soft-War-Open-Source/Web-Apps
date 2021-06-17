@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ListPaymentMethodComponent implements OnInit {
   id: number = 0;
+  paymentMethod: PaymentMethod = new PaymentMethod();
   client_id: number = 0;
   paymentMethods: PaymentMethod[] = [];
 
@@ -47,4 +48,10 @@ export class ListPaymentMethodComponent implements OnInit {
     }
   }
 
+  insertPaymentMethod(){
+    this.paymentMethodService.createPaymentMethod(this.paymentMethod)
+    .subscribe(data=>console.log(data), error=>console.log(error));
+    this.paymentMethod = new PaymentMethod();
+    this.router.navigate(['new-payment-method']);
+  }
 }
