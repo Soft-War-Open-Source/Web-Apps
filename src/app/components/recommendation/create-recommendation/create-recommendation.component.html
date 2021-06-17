@@ -1,1 +1,32 @@
-<p>create-recommendation works!</p>
+<br/>
+<form class="text-center border border-light p-5 col-lg-6 offset-lg-3" (ngSubmit)="insertRecommendation()">
+
+    <p class="h4 mb-4">Sign up</p>
+
+    <input type="hidden" id="RecommendationId" name="RecommendationId"
+    required [(ngModel)]="recommendation.id">
+
+    <input type="text" class="form-control" id="name" 
+    name= "name" placeholder="Name" 
+    required [(ngModel)]="recommendation.name" />
+    <br>
+    
+    <input type="text" class="form-control" id="description" 
+    name= "description" placeholder="Description" 
+    required [(ngModel)]="recommendation.description" />
+
+    <br>
+
+    <input type="text" class="form-control" id="firstName" 
+    name= "firstName" placeholder="FirstName" 
+    required [(ngModel)]="recommendation.firstName" />
+
+    
+
+
+
+    <button type="submit" class="btn btn-success" onClick="window.location.href='login';">
+        Save
+    </button>
+
+  </form>
