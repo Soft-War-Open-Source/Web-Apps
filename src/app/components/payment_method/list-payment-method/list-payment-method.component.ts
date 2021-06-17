@@ -13,7 +13,7 @@ import { ClientService } from 'src/app/services/client.service';
 export class ListPaymentMethodComponent implements OnInit {
   client_id: number = 1;
   clients: Client[]=[]
-  paymentMethods: PaymentMethod[]=[];
+  payments2: PaymentMethod[]=[];
   payments: PaymentMethod[]=[];
 
   constructor(private router: Router,
@@ -28,7 +28,7 @@ export class ListPaymentMethodComponent implements OnInit {
 
   loadDataPaymentMethods(){
     this.paymentMethodService.getPaymentMethodByClient(this.client_id)
-    .subscribe(paymentMethods=>this.paymentMethods = paymentMethods);
+    .subscribe(payments2=>this.payments2 = payments2);
   }
 
   deletePaymentMethod(payment_method: PaymentMethod){
