@@ -18,7 +18,11 @@
                 <tr>
                     <td>{{ appointment.nutritionist.firstName }} {{ appointment.nutritionist.lastName }}</td>
                     <td>{{ appointment.appointmentDate }}</td>
-                    <td>{{ appointment.diet.description}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" (click)='viewDiet(appointment)'>
+                            Ver Dieta
+                        </button>
+                    </td>
                 </tr>
             </ng-container>
         </tbody>

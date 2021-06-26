@@ -4,15 +4,14 @@ import { Appointment } from 'src/app/model/appointment';
 import { Diet } from 'src/app/model/diet';
 import { Recipe } from 'src/app/model/recipe';
 import { AppointmentService } from 'src/app/services/appointment.service';
-import { ClientService } from 'src/app/services/client.service';
 import { DietService } from 'src/app/services/diet.service';
 
 @Component({
-  selector: 'app-list-diet',
-  templateUrl: './list-diet.component.html',
-  styleUrls: ['./list-diet.component.css']
+  selector: 'app-list-diet-nutritionist',
+  templateUrl: './list-diet-nutritionist.component.html',
+  styleUrls: ['./list-diet-nutritionist.component.css']
 })
-export class ListDietComponent implements OnInit {
+export class ListDietNutritionistComponent implements OnInit {
 
   appointment_id: number = 1;
   appointment: Appointment = new Appointment();
@@ -42,5 +41,13 @@ export class ListDietComponent implements OnInit {
       this.recipes = datos3;
       }, error=>console.log(error));
     }, error=>console.log(error));
+  }
+
+  updateDiet(diet: Diet){
+    this.router.navigate(['update-diet', diet.id])
+  }
+
+  addRecipeToDiet(diet: Diet){
+    this.router.navigate(['add-diet-recipes', diet.id])
   }
 }

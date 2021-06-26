@@ -13,8 +13,7 @@ import { ClientService } from 'src/app/services/client.service';
 export class ListBillComponent implements OnInit {
 
   client_id: number = 1;
-  clients: Client[]=[]
-  bills: Bill[]=[];
+  client: Client = new Client();
   bills2: Bill[]=[];
 
   constructor(private router: Router,
@@ -22,36 +21,23 @@ export class ListBillComponent implements OnInit {
     private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.bills.push(new Bill());
     this.assignClient();
     this.loadDataBills();
   }
 
-  loadDataBills(){
-    this.billService.getBillByClient(this.client_id)
-    .subscribe(bills2=>this.bills2 = bills2);
-  }
-
-  deleteBill(bill: Bill){
-    this.billService.deleteBill(bill.id)
-    .subscribe(data=>{this.loadDataBills();})
-  }
-
-  updateBill(bill: Bill){
-    this.router.navigate(['actualizar', bill.id]); //cambiar enlace update
-  }
-
   assignClient(){
     this.clientService.getClientById(this.client_id)
-    .subscribe(datos=>this.clients.push(datos));
+    .subscribe(datos=>{
+      console.log(datos)
+      this.client = datos;
+    }, error=>console.log(error));
   }
 
-  insertBill(){
-    this.bills[0].client = this.clients[0];
-    this.billService.createBill(this.bills[0])
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.bills = [];
-    this.clients = [];
-    this.router.navigate(['list-payment-methods']);
+  loadDataBills(){
+    this.billService.getBillByClient(this.client_id)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.bills2 = datos;
+    }, error=>console.log(error));
   }
 }

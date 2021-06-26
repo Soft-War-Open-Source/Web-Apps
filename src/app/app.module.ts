@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +44,12 @@ import { AppointmentHistoryNutritionistComponent } from './components/nutritioni
 import { PendingAppointmentsComponent } from './components/nutritionist/pending-appointments/pending-appointments.component';
 import { AppointmentHistoryClientComponent } from './components/client/appointment-history-client/appointment-history-client.component';
 import { UpdateRecipeComponent } from './components/recipe/update-recipe/update-recipe.component';
+import { ListDietNutritionistComponent } from './components/diet/list-diet-nutritionist/list-diet-nutritionist.component';
+import { AddDietRecipesComponent } from './components/diet/add-diet-recipes/add-diet-recipes.component';
+import { ViewNotesComponent } from './components/nutritionist/view-notes/view-notes.component';
+import { UpdateNotesComponent } from './components/nutritionist/update-notes/update-notes.component';
+import { ListRecipesNutritionistComponent } from './components/recipe/list-recipes-nutritionist/list-recipes-nutritionist.component';
+import { FavoriteRecipesComponent } from './components/recipe/favorite-recipes/favorite-recipes.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +91,13 @@ import { UpdateRecipeComponent } from './components/recipe/update-recipe/update-
     AppointmentHistoryNutritionistComponent,
     PendingAppointmentsComponent,
     AppointmentHistoryClientComponent,
-    UpdateRecipeComponent
+    UpdateRecipeComponent,
+    ListDietNutritionistComponent,
+    AddDietRecipesComponent,
+    ViewNotesComponent,
+    UpdateNotesComponent,
+    ListRecipesNutritionistComponent,
+    FavoriteRecipesComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +105,7 @@ import { UpdateRecipeComponent } from './components/recipe/update-recipe/update-
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

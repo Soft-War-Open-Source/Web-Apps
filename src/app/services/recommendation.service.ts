@@ -28,11 +28,11 @@ export class RecommendationService {
   }
 
   getRecommendationById(id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/${id}`)
+    return this.http.get(`${this.baseURL}/${id}`);
   }
 
   getRecommendationByName(name: string) : Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByName/${name}`)
+    return this.http.get(`${this.baseURL}/searchByName/${name}`);
   }
 
   getRecommendationByNutritionist(nutritionist_id: number): Observable<any>{

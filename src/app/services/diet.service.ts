@@ -28,15 +28,15 @@ export class DietService {
   }
 
   getDietById(id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/${id}`)
+    return this.http.get(`${this.baseURL}/${id}`);
   }
 
   addRecipeToDiet(recipe_id: number, diet_id: number): Observable<any>{
     return this.http.post(`${this.baseURL}/${recipe_id}/${diet_id}`, null);
   }
 
-  findDietRecipes(diet_id: number): Observable<any>{
-    return this.http.get(`${this.baseURL}/findDietRecipes/${diet_id}`);
+  findDietRecipes(dietId: number): Observable<any>{
+    return this.http.get(`${this.baseURL}/findDietRecipes/${dietId}`);
   }
 
   deleteRecipeFromDiet(recipe_id: number, diet_id: number) : Observable<any>{

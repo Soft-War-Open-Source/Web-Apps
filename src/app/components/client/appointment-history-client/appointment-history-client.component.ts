@@ -25,4 +25,8 @@ export class AppointmentHistoryClientComponent implements OnInit {
     this.appointmentService.getAppointmentByClient(this.id)
     .subscribe(appointments=>this.appointments=appointments);
   }
+
+  viewDiet(appointment: Appointment){
+    this.router.navigate(['list-diet', appointment.id])
+  }
 }

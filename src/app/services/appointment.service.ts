@@ -28,20 +28,21 @@ export class AppointmentService {
   }
 
   getAppointmentById(id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/${id}`)
+    return this.http.get(`${this.baseURL}/${id}`);
   }
 
-  //REVISAAAAAAAAR
   getAppointmentBetweenDates(date1: string, date2: string) : Observable<any> {
     let params = new HttpParams();
 
     params = params.append('date1', date1);
     params = params.append('date2', date2);
-    return this.http.get(`${this.baseURL}/searchBetweenDates`, {params: params} )
+    return this.http.get(`${this.baseURL}/searchBetweenDates`, {params: params} );
   }
 
-  updateAppointmentNotes(id: number, notes: Object) : Observable<any>{
-    return this.http.put(`${this.baseURL}/update_appointment_notes/${id}`, notes);
+  updateAppointmentNotes(id: number, appointment: Object, notes: string) : Observable<any>{
+    let params = new HttpParams();
+    params = params.append('notes', notes);
+    return this.http.put(`${this.baseURL}/update_appointment_notes/${id}`, appointment, {params: params});
   }
 
   updateAppointmentDate(id: number, date: Object){
@@ -49,7 +50,7 @@ export class AppointmentService {
   }
 
   getAppointmentByNutritionist(nutritionist_id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/searchAppointmentByNutritionistId/${nutritionist_id}`)
+    return this.http.get(`${this.baseURL}/searchAppointmentByNutritionistId/${nutritionist_id}`);
   }
 
   getAppointmentByClient(client_id: number): Observable<any>{

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Diet } from 'src/app/model/diet';
+import { DietService } from 'src/app/services/diet.service';
 
 @Component({
   selector: 'app-update-diet',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateDietComponent implements OnInit {
 
-  constructor() { }
+  id: number = 1;
+  diet: Diet = new Diet();
+
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private dietService : DietService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.dietService.getDietById(this.id)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.diet = datos;
+    }, error=>console.log(error));
+  }
+
+  updateDiet(){
+    this.dietService.updateDiet(this.id, this.diet)
+    .subscribe(datos=>{
+      console.log(datos)
+    }, error=>console.log(error));
+    this.diet = new Diet();
   }
 
 }

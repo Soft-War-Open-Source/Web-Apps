@@ -19,11 +19,10 @@ import { NutritionistService } from 'src/app/services/nutritionist.service';
 export class NewAppointmentComponent implements OnInit {
 
   id: number = 1;
-  nutritionists: Nutritionist[]=[];
-  appointments: Appointment[]=[];
-  diets: Diet[]=[];
-  clients: Client[]=[];
-  bills: Bill[]=[];
+  nutritionist: Nutritionist = new Nutritionist();
+  appointment: Appointment = new Appointment();
+  client: Client = new Client();
+  bill: Bill = new Bill();
   date: Date = new Date();
 
   constructor(private router: Router,
@@ -40,58 +39,40 @@ export class NewAppointmentComponent implements OnInit {
   loadDataAppointment(){
     this.searchNutritionistbyId();
     this.searchClientbyId();
-    this.diets.push(new Diet())
-    this.bills.push(new Bill());
-    this.insertDiet();
-    this.searchDietbyId();
-    this.appointments.push(new Appointment);
   }
 
   searchNutritionistbyId(){
     this.nutritionistService.getNutritionistById(this.id)
-    .subscribe(nutritionist=>this.nutritionists.push(nutritionist))
+    .subscribe(datos=>{
+      console.log(datos)
+      this.nutritionist = datos;
+    }, error=>console.log(error));
   }
 
   searchClientbyId(){
     this.clientService.getClientById(this.id)
-    .subscribe(client=>this.clients.push(client))
-  }
-
-  insertDiet(){
-    this.dietService.createDiet(this.diets[0])
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.diets = [];
+    .subscribe(datos=>{
+      console.log(datos)
+      this.client = datos;
+    }, error=>console.log(error));
   }
 
   insertBill(){
-    this.bills[0].client = this.clients[0];
-    this.bills[0].amount = 35;
-    this.billService.createBill(this.bills[0])
+    this.bill.client = this.client;
+    this.bill.amount = 35;
+    this.billService.createBill(this.bill)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.bills = [];
-  }
-
-  searchDietbyId(){
-    this.dietService.getDietById(this.id)
-    .subscribe(diet=>this.diets.push(diet))
-  }
-
-  searchBillbyId(){
-    this.billService.getBillById(this.id)
-    .subscribe(bill=>this.bills.push(bill))
   }
 
   createAppointment(){
-    this.appointments[0].nutritionist = this.nutritionists[0];
-    this.appointments[0].client = this.clients[0];
-    this.appointments[0].diet = this.diets[0];
+    this.appointment.nutritionist = this.nutritionist;
+    this.appointment.client = this.client;
     this.insertBill();
-    this.appointmentService.createAppointment(this.appointments[0])
+    this.appointmentService.createAppointment(this.appointment)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.clients = [];
-    this.nutritionists = [];
-    this.diets =[];
-    this.appointments = [];
+    this.bill = new Bill();
+    this.client = new Client();
+    this.appointment = new Appointment();
+    this.nutritionist = new Nutritionist();
   }
-
 }

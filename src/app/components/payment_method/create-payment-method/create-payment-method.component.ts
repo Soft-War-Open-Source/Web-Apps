@@ -14,14 +14,13 @@ export class CreatePaymentMethodComponent implements OnInit {
   client_id: number = 1;
   payments: PaymentMethod[]=[];
   clients: Client[]=[];
-
+  payment: PaymentMethod = new PaymentMethod();
 
   constructor(private router: Router,
     private paymentMethodService: PaymentMethodService,
     private clientService : ClientService) { }
 
   ngOnInit(): void {
-    this.payments.push(new PaymentMethod());
     this.assignClient();
   }
 
@@ -31,8 +30,11 @@ export class CreatePaymentMethodComponent implements OnInit {
   }
 
   insertPaymentMethod(){
-    this.payments[0].client = this.clients[0];
-    this.paymentMethodService.createPaymentMethod(this.payments[0])
+    //this.payments.push(new PaymentMethod());
+    //this.payments[0].client = this.clients[0];
+    //this.paymentMethodService.createPaymentMethod(this.payments[0])
+    //.subscribe(datos=>console.log(datos), error=>console.log(error));
+    this.paymentMethodService.createPaymentMethod(this.payment)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.payments = [];
     this.clients = [];

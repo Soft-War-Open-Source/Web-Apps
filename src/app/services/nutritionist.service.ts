@@ -28,11 +28,11 @@ export class NutritionistService {
   }
 
   getNutritionistById(id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/${id}`)
+    return this.http.get(`${this.baseURL}/${id}`);
   }
 
   getNutritionistByUsername(username: string) : Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByUsername/${username}`)
+    return this.http.get(`${this.baseURL}/searchByUsername/${username}`);
   }
 
   getNutritionistByCnpNumber(cnpNumber: number): Observable<any>{
@@ -44,7 +44,7 @@ export class NutritionistService {
   }
 
   getNutritionistByLastName(lastName: string) : Observable<any>{
-    return this.http.get(`${this.baseURL}/searchByLastname/${lastName}`)
+    return this.http.get(`${this.baseURL}/searchByLastname/${lastName}`);
   }
 
   getNutritionistByFirstNameAndLastName(firstName: string, lastName: string): Observable<any>{

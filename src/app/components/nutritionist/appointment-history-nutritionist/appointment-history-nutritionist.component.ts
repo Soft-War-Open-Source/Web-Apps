@@ -26,5 +26,13 @@ export class AppointmentHistoryNutritionistComponent implements OnInit {
     this.appointmentService.getAppointmentByNutritionist(this.id)
     .subscribe(appointments=>this.appointments=appointments);
   }
+
+  viewDiet(appointment: Appointment){
+    this.router.navigate(['list-diet-nutritionist', appointment.id])
+  }
+
+  viewNotes(appointment: Appointment){
+    this.router.navigate(['view-notes', appointment.id])
+  }
   
 }

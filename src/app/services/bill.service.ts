@@ -28,7 +28,7 @@ export class BillService {
   }
 
   getBillById(id: number) : Observable<any>{
-    return this.http.get(`${this.baseURL}/${id}`)
+    return this.http.get(`${this.baseURL}/${id}`);
   }
 
   getBillByClient(client_id: number): Observable<any>{
@@ -41,6 +41,6 @@ export class BillService {
 
     params = params.append('date1', date1);
     params = params.append('date2', date2);
-    return this.http.get(`${this.baseURL}/searchBetweenDates`, {params: params} )
+    return this.http.get(`${this.baseURL}/searchBetweenDates`, {params: params} );
   }
 }

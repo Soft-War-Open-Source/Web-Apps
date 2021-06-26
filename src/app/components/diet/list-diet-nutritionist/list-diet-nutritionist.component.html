@@ -2,9 +2,15 @@
 <h2>Dieta</h2>
 <br>
 <br>
-<div class="contenedor row g-3" >
-    <p>{{ appointment.diet.name }}</p>
+<div class="card" style="width: 10rem;">
+    <p>{{ diet.name }}</p>
     <p>{{ diet.description }}</p>
+    <button (click)='updateDiet(diet)'>
+        Modificar Dieta
+    </button>
+    <button (click)='addRecipeToDiet(diet)'>
+        Agregar Receta
+    </button>
 </div>
 <br>
 <div class="contenedor row g-3" >
@@ -22,7 +28,7 @@
           <p class="card-text">{{recipe.preparation}}</p>
           <h6 class="card-title-descripton">Ingredientes: </h6>
           <p class="card-text">{{recipe.ingredients}}</p>
-        </div>
+        </div>  
       </div>
     </ng-container>
   </div>

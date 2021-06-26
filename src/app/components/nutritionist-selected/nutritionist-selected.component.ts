@@ -12,6 +12,7 @@ export class NutritionistSelectedComponent implements OnInit {
 
   id: number = 1;
   nutritionists: Nutritionist[]=[];
+  nutritionist: Nutritionist = new Nutritionist();
 
   constructor(private router: Router,
     private nutritionistService: NutritionistService) { }
@@ -26,6 +27,7 @@ export class NutritionistSelectedComponent implements OnInit {
 
   searchNutritionistbyId(){
     this.nutritionistService.getNutritionistById(this.id)
-    .subscribe(nutritionist=>this.nutritionists.push(nutritionist))
+    //.subscribe(nutritionist=>this.nutritionists.push(nutritionist))
+    .subscribe(nutritionist=>this.nutritionist = nutritionist)
   }
 }
