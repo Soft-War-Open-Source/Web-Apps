@@ -1,0 +1,39 @@
+<br/>
+<h2>Recomendaciones publicadas</h2>
+
+<button type="submit" (click)='insertRecommendation()' class="btn btn-primary">
+    Publicar
+</button>
+<br/>
+
+<br/>
+<table class="table table-striped">
+    <thead class="thead_dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Última modificación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let recommendation of recommendations">
+            <tr>
+                <td>{{ recommendation.name }}</td>
+                <td>{{ recommendation.description }}</td>
+                <td>{{ recommendation.createdAt }}</td>
+                <td>{{ recommendation.lastModification }}</td>
+                <td>
+                    <button type="submit" (click)='updateRecommendation(recommendation)' class="btn btn-primary">
+                        Actualizar
+                    </button>
+                    <button type="submit" (click)='deleteRecommendation(recommendation.id)' class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<br>

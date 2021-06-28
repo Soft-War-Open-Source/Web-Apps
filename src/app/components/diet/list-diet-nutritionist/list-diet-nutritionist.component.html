@@ -1,0 +1,34 @@
+<br>
+<h2>Dieta</h2>
+<br>
+<br>
+<div class="card" style="width: 10rem;">
+    <p>{{ diet.name }}</p>
+    <p>{{ diet.description }}</p>
+    <button (click)='updateDiet(diet)'>
+        Modificar Dieta
+    </button>
+    <button (click)='addRecipeToDiet(diet)'>
+        Agregar Receta
+    </button>
+</div>
+<br>
+<div class="contenedor row g-3" >
+    <ng-container *ngFor="let recipe of recipes">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title-descripton">Nombre: </h5>
+          <h5 class="card-title-name">{{recipe.name}}</h5>
+          <h6 class="card-title-descripton">Favoritos: </h6>
+          <p class="card-text">{{recipe.favorite}}</p>
+          <img src="https://tipsparatuviaje.com/wp-content/uploads/2020/03/lasana-comida.jpg" class="card-img-top" alt="">
+          <h6 class="card-title-descripton">Descripción: </h6>
+          <p class="card-text">{{recipe.descripcion}}</p>
+          <h6 class="card-title-descripton">Preparación: </h6>
+          <p class="card-text">{{recipe.preparation}}</p>
+          <h6 class="card-title-descripton">Ingredientes: </h6>
+          <p class="card-text">{{recipe.ingredients}}</p>
+        </div>  
+      </div>
+    </ng-container>
+  </div>

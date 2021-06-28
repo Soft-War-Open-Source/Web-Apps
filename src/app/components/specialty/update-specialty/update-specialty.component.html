@@ -1,1 +1,23 @@
-<p>update-specialty works!</p>
+<br/>
+<h2>Actualización de Specialty</h2>
+<br/>
+<div>
+    <form (ngSubmit)="updateSpecialty()">
+        <div *ngIf="specialty">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="name"
+                name= "name" placeholder="Name"
+                required [(ngModel)]="specialty.name" />
+            </div>
+            <br>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="institutionName"
+                name= "institutionName" placeholder="InstitutionName"
+                required [(ngModel)]="specialty.institutionName" />
+            </div>
+            <br>
+           
+        </div>
+        <button type="submit" class ="btn btn-success">Save</button>
+    </form>
+</div>

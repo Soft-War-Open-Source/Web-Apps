@@ -1,0 +1,46 @@
+<br>
+<br>
+<div style="display: flex; width: 100%;justify-content: space-evenly; align-items: center;">
+    <div class="card " style="width: 14rem; border: 1px solid blue;">
+        <div class="card " style="width: 14rem;">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+            <div class="text-center" >
+              <p class="card-text">{{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
+              <p class="card-text">CNP: {{ nutritionist.cnpNumber }}</p>
+              <p class="card-text">Email: {{ nutritionist.email }}</p>
+              <p class="card-text">Calificación</p>
+                <form>
+                    <p class="clasificacion">
+                      <input id="radio1" type="radio" name="estrellas" value="5">
+                      <label for="radio1">★</label>
+                      <input id="radio2" type="radio" name="estrellas" value="4">
+                      <label for="radio2">★</label>
+                      <input id="radio3" type="radio" name="estrellas" value="3">
+                      <label for="radio3">★</label>
+                      <input id="radio4" type="radio" name="estrellas" value="2">
+                      <label for="radio4">★</label>
+                      <input id="radio5" type="radio" name="estrellas" value="1">
+                      <label for="radio5">★</label>
+                    </p>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card" style="width: 18rem; ">
+            <div class="card-body">
+              <h5 class="card-title text-center">AGENDAR CITA</h5>
+              <p>{{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
+              <p>Email: {{ nutritionist.email }}</p>
+              <p>Costo: 35.00 soles</p>
+              <p>Fecha selecionada: {{ date }}</p>
+              <div class="text-center">
+                <a (click)='createAppointment()' class="btn btn-primary" 
+                  onClick="window.location.href='menu';">
+                  PAGAR CITA
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

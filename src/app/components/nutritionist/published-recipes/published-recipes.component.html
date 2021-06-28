@@ -1,0 +1,45 @@
+<br/>
+<h2>Recetas publicadas</h2>
+
+<button type="submit" (click)='insertRecipe()' class="btn btn-primary">
+    Publicar
+</button>
+<br/>
+
+<br/>
+<table class="table table-striped">
+    <thead class="thead_dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Preparación</th>
+            <th scope="col">Ingredientes</th>
+            <th scope="col">Favoritos</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Última modificación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let recipe of recipes">
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.descripcion }}</td>
+                <td>{{ recipe.preparation }}</td>
+                <td>{{ recipe.ingredients }}</td>
+                <td>{{ recipe.favorite }}</td>
+                <td>{{ recipe.created_at }}</td>
+                <td>{{ recipe.last_modification }}</td>
+                <td>
+                    <button type="submit" (click)='updateRecipe(recipe)' class="btn btn-primary">
+                        Actualizar
+                    </button>
+                    <button type="submit" (click)='deleteRecipe(recipe.id)' class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<br>
