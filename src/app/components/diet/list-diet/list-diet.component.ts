@@ -43,4 +43,8 @@ export class ListDietComponent implements OnInit {
       }, error=>console.log(error));
     }, error=>console.log(error));
   }
+
+  return(appointment: Appointment){
+    this.router.navigate(['appointments-history-client', appointment.nutritionist.id])
+  }
 }

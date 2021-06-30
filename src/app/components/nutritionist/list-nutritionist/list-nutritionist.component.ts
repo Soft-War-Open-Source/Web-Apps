@@ -69,7 +69,9 @@ export class ListNutritionistComponent implements OnInit {
   
   deleteSpecialty(specialty: Specialty, professionalProfileId: number){
     this.professionalProfileService.deleteSpecialtyFromProfessionalProfile(specialty.id, professionalProfileId)
-    .subscribe(data=>{this.loadDataNutritionist();})
+    .subscribe(data=>{this.loadDataNutritionist();});
+    this.specialtyService.deleteSpecialty(specialty.id)
+    .subscribe(data=>{this.loadDataNutritionist();});
   }
 
   updateSpecialty(specialty: Specialty){
