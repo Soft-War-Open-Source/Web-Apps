@@ -41,4 +41,8 @@ export class NutritionistSelectedComponent implements OnInit {
   createAppointment(client_id: number, nutritionist_id: number){
     this.router.navigate(['new-appointment', client_id, nutritionist_id])
   }
+  
+  return(){
+    this.router.navigate(['available-nutritionist', this.client_id])
+  }
 }

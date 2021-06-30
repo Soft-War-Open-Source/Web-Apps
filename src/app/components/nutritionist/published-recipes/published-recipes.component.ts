@@ -41,4 +41,8 @@ export class PublishedRecipesComponent implements OnInit {
   insertRecipe(nutritionistId: number){
     this.router.navigate(['new-recipe', nutritionistId])
   }
+  
+  return(){
+    this.router.navigate(['menu-nutritionist', this.nutritionist_id]);
+  }
 }

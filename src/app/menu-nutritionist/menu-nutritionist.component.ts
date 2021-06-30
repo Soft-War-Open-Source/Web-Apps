@@ -32,7 +32,7 @@ export class MenuNutritionistComponent implements OnInit {
   }
 
   listRecipes(){
-    this.router.navigate(['list-recipes-nutritionist'])
+    this.router.navigate(['list-recipes-nutritionist', this.nutritionist_id])
   }
 
   listRecommendations(){

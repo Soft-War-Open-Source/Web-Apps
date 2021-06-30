@@ -40,5 +40,9 @@ export class PublishedRecommendationsComponent implements OnInit {
   insertRecommendation(nutritionistId: number){
     this.router.navigate(['new-recommendation', nutritionistId])
   }
+  
+  return(){
+    this.router.navigate(['menu-nutritionist', this.nutritionist_id]);
+  }
 
 }

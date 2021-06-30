@@ -62,4 +62,8 @@ export class ListRecipeComponent implements OnInit {
   showFavorites(client: Client){
     this.router.navigate(['favorite-recipes', client.id])
   }
+  
+  return(){
+    this.router.navigate(['menu', this.client_id]);
+  }
 }

@@ -55,4 +55,9 @@ export class ListBillComponent implements OnInit {
     }
     return date2;
   }
+  
+  return(){
+    this.router.navigate(['menu', this.client_id]);
+  }
+  
 }

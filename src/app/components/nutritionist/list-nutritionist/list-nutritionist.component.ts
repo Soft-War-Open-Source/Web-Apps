@@ -75,6 +75,11 @@ export class ListNutritionistComponent implements OnInit {
   updateSpecialty(specialty: Specialty){
     this.router.navigate(['update-specialty', specialty.id]);
   }
+
+  //PROFESSIONAL PROFILE
+  updateProfessionalProfile(nutritionist: Nutritionist){
+    this.router.navigate(['update-professional-profile', nutritionist.id]);
+  }
   
   return(){
     this.router.navigate(['menu-nutritionist', this.id]);

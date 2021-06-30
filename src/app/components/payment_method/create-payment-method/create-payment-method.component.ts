@@ -43,4 +43,8 @@ export class CreatePaymentMethodComponent implements OnInit {
     this.client = new Client();
     this.router.navigate(['list-payment-methods', client.id]);
   }
+
+  return(){
+    this.router.navigate(['list-payment-methods', this.client_id]);
+  }
 }

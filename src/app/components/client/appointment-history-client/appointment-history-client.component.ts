@@ -35,4 +35,8 @@ export class AppointmentHistoryClientComponent implements OnInit {
   viewDiet(appointment: Appointment){
     this.router.navigate(['list-diet', appointment.id])
   }
+  
+  return(){
+    this.router.navigate(['menu', this.id]);
+  }
 }

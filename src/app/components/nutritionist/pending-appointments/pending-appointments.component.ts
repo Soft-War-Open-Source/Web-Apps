@@ -28,4 +28,8 @@ export class PendingAppointmentsComponent implements OnInit {
     .subscribe(appointments=>this.appointments=appointments);
   }
   
+  return(){
+    this.router.navigate(['menu-nutritionist', this.nutritionist_id]);
+  }
+  
 }

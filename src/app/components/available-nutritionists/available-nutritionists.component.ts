@@ -32,4 +32,8 @@ export class AvailableNutritionistsComponent implements OnInit {
   nutritionistSelected(nutritionist_id: number){
     this.router.navigate(['nutritionist-selected', this.client_id, nutritionist_id])
   }
+  
+  return(){
+    this.router.navigate(['menu', this.client_id]);
+  }
 }

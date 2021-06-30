@@ -15,14 +15,17 @@
         <a href="">¿Olvidaste tu contraseña?</a>
       </div>
     </div>
-  
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Ingresar</button>
-    
-    <p>¿No eres miembro?
+    <br>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" class="btn btn-success">Ingresar</button>
+    <br>
+    <br>
+    <p><b>¿No eres miembro?</b>
       <br>
-      <button type="button" (click)='registerClient()'>Regístrate (Cliente)</button>
       <br>
-      <button type="button" (click)='registerNutritionist()'>Regístrate (Nutricionista)</button>
+      <button type="button" class="btn btn-success" (click)='registerClient()'>Nuevo Usuario</button>
+      <br>
+      <br>
+      <button type="button" class="btn btn-success" (click)='registerNutritionist()'>Nuevo Nutricionista</button>
     </p>
   
 </form>

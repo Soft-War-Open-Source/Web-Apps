@@ -83,4 +83,8 @@ export class NewAppointmentComponent implements OnInit {
     this.nutritionist = new Nutritionist(); 
     this.router.navigate(['menu', this.client_id]);
   }
+  
+  return(){
+    this.router.navigate(['nutritionist-selected', this.client_id, this.nutritionist_id])
+  }
 }

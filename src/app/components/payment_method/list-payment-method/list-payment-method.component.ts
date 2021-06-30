@@ -52,4 +52,7 @@ export class ListPaymentMethodComponent implements OnInit {
   newPaymentMethod(client: Client){
     this.router.navigate(['new-payment-method', client.id]);
   }
+  return(){
+    this.router.navigate(['menu', this.client_id]);
+  }
 }

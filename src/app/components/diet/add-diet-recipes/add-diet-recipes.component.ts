@@ -42,6 +42,10 @@ export class AddDietRecipesComponent implements OnInit {
   addRecipeToDiet(diet: Diet, recipe: Recipe){
     this.dietService.addRecipeToDiet(recipe.id, diet.id)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
+    this.return();
+  }
+
+  return(){
     this.router.navigate(['list-diet-nutritionist', this.appointmentId])
   }
 }

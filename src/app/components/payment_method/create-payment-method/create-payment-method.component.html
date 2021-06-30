@@ -75,6 +75,9 @@
                     name="billingAddressLine2"type="text" placeholder="Dirección línea 2" required [(ngModel)]="payment.billingAddressLine2"/> </div>
             </div>
             <button type="submit" class="btn btn-success"><b>Add card</b></button>
+            <button type="button" class="btn btn-success" (click)='return()'>
+                <b>Atrás</b>
+            </button>
         </form>
     </div>
 </div>
