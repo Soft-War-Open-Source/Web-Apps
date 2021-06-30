@@ -45,6 +45,6 @@ export class ListDietComponent implements OnInit {
   }
 
   return(appointment: Appointment){
-    this.router.navigate(['appointments-history-client', appointment.nutritionist.id])
+    this.router.navigate(['appointments-history-client', appointment.client.id])
   }
 }
