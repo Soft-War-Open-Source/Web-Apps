@@ -60,14 +60,17 @@ export class ListClientComponent implements OnInit {
     this.deleteClientPaymentMethods();
     this.deleteClientBills();
     this.deleteAppointments();
-    this.clientService.deleteClient(client.id)
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-
+    this.deleteClientInfo(client);
     this.router.navigate(['login'])
   }
 
   updateClient(client: Client){
     this.router.navigate(['update-client', client.id])//Se irá hacia el actualizar ('update')
+  }
+
+  deleteClientInfo(client: Client){
+    this.clientService.deleteClient(client.id)
+    .subscribe(datos=>console.log(datos), error=>console.log(error));
   }
 
   //BILLS
@@ -77,9 +80,11 @@ export class ListClientComponent implements OnInit {
   }
 
   deleteClientBills(){
-    for (let bill of this.bills){
-      this.billService.deleteBill(bill.id)
-      .subscribe(datos=>console.log(datos), error=>console.log(error));
+    if (this.bills!=null){
+      for (let bill of this.bills){
+        this.billService.deleteBill(bill.id)
+        .subscribe(datos=>console.log(datos), error=>console.log(error));
+      }
     }
   }
 
@@ -90,9 +95,11 @@ export class ListClientComponent implements OnInit {
   }
 
   deleteClientPaymentMethods(){
-    for (let paymentMethod of this.paymentMethods){
-      this.paymentMethodService.deletePaymentMethod(paymentMethod.id)
-      .subscribe(datos=>console.log(datos), error=>console.log(error));
+    if (this.paymentMethods!=null){
+      for (let paymentMethod of this.paymentMethods){
+        this.paymentMethodService.deletePaymentMethod(paymentMethod.id)
+        .subscribe(datos=>console.log(datos), error=>console.log(error));
+      }
     }
   }
 
@@ -103,9 +110,11 @@ export class ListClientComponent implements OnInit {
   }
 
   deleteClientFavoritesRecipes(){
-    for (let recipe of this.recipes){
-      this.clientService.deleteClientFavoriteRecipe(recipe.id, this.client.id)
-      .subscribe(datos=>console.log(datos), error=>console.log(error));
+    if (this.recipes!=null){
+      for (let recipe of this.recipes){
+        this.clientService.deleteClientFavoriteRecipe(recipe.id, this.client.id)
+        .subscribe(datos=>console.log(datos), error=>console.log(error));
+      }
     }
   }
   
@@ -116,9 +125,11 @@ export class ListClientComponent implements OnInit {
   }
 
   deleteAppointments(){
-    for (let appointment of this.appointments){
-      this.appointmentService.deleteAppointment(appointment.id)
-      .subscribe(datos=>console.log(datos), error=>console.log(error));
+    if (this.appointments!=null){
+      for (let appointment of this.appointments){
+        this.appointmentService.deleteAppointment(appointment.id)
+        .subscribe(datos=>console.log(datos), error=>console.log(error));
+      }
     }
   }
 
