@@ -8,6 +8,8 @@ import { Recipe } from 'src/app/model/recipe';
 import { ClientService } from 'src/app/services/client.service';
 import { BillService } from 'src/app/services/bill.service';
 import { PaymentMethodService } from 'src/app/services/payment-method.service';
+import { Appointment } from 'src/app/model/appointment';
+import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
   selector: 'app-list-client',
@@ -21,13 +23,15 @@ export class ListClientComponent implements OnInit {
   recipes: Recipe[]=[];
   bills: Bill[]=[];
   paymentMethods: PaymentMethod[]=[];
+  appointments: Appointment[]=[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router, 
     private clientService: ClientService,
     private billService: BillService,
-    private paymentMethodService: PaymentMethodService) { }
+    private paymentMethodService: PaymentMethodService,
+    private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -39,6 +43,7 @@ export class ListClientComponent implements OnInit {
     this.searchClientFavoriteRecipes();
     this.searchClientPaymentMethods();
     this.searchClientBills();
+    this.searchAppointments();
   }
 
   //CLIENT
@@ -54,7 +59,7 @@ export class ListClientComponent implements OnInit {
     this.deleteClientFavoritesRecipes();
     this.deleteClientPaymentMethods();
     this.deleteClientBills();
-
+    this.deleteAppointments();
     this.clientService.deleteClient(client.id)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
 
@@ -100,6 +105,19 @@ export class ListClientComponent implements OnInit {
   deleteClientFavoritesRecipes(){
     for (let recipe of this.recipes){
       this.clientService.deleteClientFavoriteRecipe(recipe.id, this.client.id)
+      .subscribe(datos=>console.log(datos), error=>console.log(error));
+    }
+  }
+  
+  //APPOINTMENT
+  searchAppointments(){
+    this.appointmentService.getAppointmentByClient(this.id)
+    .subscribe(recipes=>this.recipes=recipes);
+  }
+
+  deleteAppointments(){
+    for (let appointment of this.appointments){
+      this.appointmentService.deleteAppointment(appointment.id)
       .subscribe(datos=>console.log(datos), error=>console.log(error));
     }
   }
