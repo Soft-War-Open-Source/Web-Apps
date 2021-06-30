@@ -112,7 +112,7 @@ export class ListClientComponent implements OnInit {
   //APPOINTMENT
   searchAppointments(){
     this.appointmentService.getAppointmentByClient(this.id)
-    .subscribe(recipes=>this.recipes=recipes);
+    .subscribe(appointments=>this.appointments=appointments);
   }
 
   deleteAppointments(){
