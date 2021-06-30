@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class PaymentMethodService {
 
-  private baseURL= 'https://appnutricare.herokuapp.com/api/PaymentMethods';
-  //private baseURL= 'http://localhost:8080/api/PaymentMethods';
+  //private baseURL= 'https://appnutricare.herokuapp.com/api/PaymentMethods';
+  private baseURL= 'http://localhost:8080/api/PaymentMethods';
 
   constructor(private http: HttpClient) { }
 

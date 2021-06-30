@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { empty } from 'rxjs';
 import { Bill } from 'src/app/model/bill';
 import { Client } from 'src/app/model/client';
@@ -16,18 +16,21 @@ import { PaymentMethodService } from 'src/app/services/payment-method.service';
 })
 export class ListClientComponent implements OnInit {
 
-  id: number = 1;
+  id: number = 0;
   client: Client = new Client();
   recipes: Recipe[]=[];
   bills: Bill[]=[];
   paymentMethods: PaymentMethod[]=[];
 
-  constructor(private router: Router, 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router, 
     private clientService: ClientService,
     private billService: BillService,
     private paymentMethodService: PaymentMethodService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
     this.loadDataClient();
   }
 
@@ -38,6 +41,15 @@ export class ListClientComponent implements OnInit {
     this.searchClientBills();
   }
 
+  //CLIENT
+  searchClientById(){
+    this.clientService.getClientById(this.id)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.client = datos;
+    }, error=>console.log(error));
+  }
+
   deleteClient(client: Client){
     this.deleteClientFavoritesRecipes();
     this.deleteClientPaymentMethods();
@@ -46,13 +58,14 @@ export class ListClientComponent implements OnInit {
     this.clientService.deleteClient(client.id)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
 
-    this.router.navigate(['list-clients'])
+    this.router.navigate(['login'])
   }
 
   updateClient(client: Client){
     this.router.navigate(['update-client', client.id])//Se irá hacia el actualizar ('update')
   }
 
+  //BILLS
   searchClientBills(){
     this.billService.getBillByClient(this.id)
     .subscribe(bills=>this.bills=bills);
@@ -65,6 +78,7 @@ export class ListClientComponent implements OnInit {
     }
   }
 
+  //PAYMENT
   searchClientPaymentMethods(){
     this.paymentMethodService.getPaymentMethodByClient(this.id)
     .subscribe(paymentMethods=>this.paymentMethods=paymentMethods);
@@ -77,6 +91,7 @@ export class ListClientComponent implements OnInit {
     }
   }
 
+  //FAVORITE RECIPES
   searchClientFavoriteRecipes(){
     this.clientService.getClientFavoriteRecipes(this.id)
     .subscribe(recipes=>this.recipes=recipes);
@@ -89,9 +104,7 @@ export class ListClientComponent implements OnInit {
     }
   }
 
-  searchClientById(){
-    this.clientService.getClientById(this.id)
-    .subscribe(client=>this.client=client);
+  return(){
+    this.router.navigate(['menu', this.id]);
   }
-  
 }

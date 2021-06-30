@@ -2,7 +2,7 @@
 <h2>Registro de Specialty</h2>
 <br/>
 <div>
-    <form (ngSubmit)="insertSpecialty()">
+    <form (ngSubmit)="insertSpecialty(specialty, professionalProfileId)">
         <div>
             <input type="hidden" id="SpecialtyId" name="SpecialtyId"
             required [(ngModel)]="specialty.id">
@@ -21,7 +21,12 @@
         </div>
         <br>
         <button type="submit" class="btn btn-success">
-            Save
+            Añadir Especialidad
+        </button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" (click)='return()'>
+            Atrás
         </button>
     </form>
 </div>

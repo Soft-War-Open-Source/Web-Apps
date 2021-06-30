@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentMethodService } from 'src/app/services/payment-method.service';
 import { PaymentMethod } from 'src/app/model/payment_method';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/model/client';
 import { ClientService } from 'src/app/services/client.service';
 
@@ -11,46 +11,45 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./list-payment-method.component.css']
 })
 export class ListPaymentMethodComponent implements OnInit {
-  client_id: number = 1;
-  clients: Client[]=[]
-  payments2: PaymentMethod[]=[];
+  client_id: number = 0;
+  client: Client = new Client();
   payments: PaymentMethod[]=[];
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
      private paymentMethodService: PaymentMethodService,
      private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.payments.push(new PaymentMethod());
-    this.assignClient();
+    this.client_id = this.route.snapshot.params['id'];
     this.loadDataPaymentMethods();
   }
 
   loadDataPaymentMethods(){
-    this.paymentMethodService.getPaymentMethodByClient(this.client_id)
-    .subscribe(payments2=>this.payments2 = payments2);
+    this.clientService.getClientById(this.client_id)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.client = datos;
+      this.paymentMethodService.getPaymentMethodByClient(this.client_id)
+      .subscribe(datos=>{
+        console.log(datos)
+        this.payments=datos;
+      }, error=>console.log(error));
+    }, error=>console.log(error));
   }
 
   deletePaymentMethod(payment_method: PaymentMethod){
     this.paymentMethodService.deletePaymentMethod(payment_method.id)
-    .subscribe(data=>{this.loadDataPaymentMethods();})
+    .subscribe(datos=>console.log(datos), error=>console.log(error));
+    this.loadDataPaymentMethods();
   }
 
   updatePaymentMethod(payment_method: PaymentMethod){
     this.router.navigate(['actualizar', payment_method.id]); //cambiar enlace update
   }
 
-  assignClient(){
-    this.clientService.getClientById(this.client_id)
-    .subscribe(datos=>this.clients.push(datos));
-  }
-
-  insertPaymentMethod(){
-    this.payments[0].client = this.clients[0];
-    this.paymentMethodService.createPaymentMethod(this.payments[0])
-    .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.payments = [];
-    this.clients = [];
-    this.router.navigate(['list-payment-methods']);
+  newPaymentMethod(client: Client){
+    this.router.navigate(['new-payment-method', client.id]);
   }
 }

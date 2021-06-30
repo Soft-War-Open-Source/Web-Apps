@@ -1,31 +1,28 @@
-<!-- Default form login -->
-<form class="text-center border border-light p-5 col-lg-6 offset-lg-3">
+<form class="text-center border border-light p-5 col-lg-6 offset-lg-3" (ngSubmit)="getUser()">
 
     <p class="h4 mb-4">Login</p>
   
-    <!-- Email -->
-    <input type="username" id="defaultLoginFormUsername" class="form-control mb-4" placeholder="Username">
-  
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="username" id="defaultLoginFormUsername" class="form-control mb-4" placeholder="Username"
+    name="Username"
+    required [(ngModel)]="username">
+
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"
+    name="Password"
+    required [(ngModel)]="password">
   
     <div class="d-flex justify-content-around">
       <div>
-        <!-- Forgot password -->
         <a href="">¿Olvidaste tu contraseña?</a>
       </div>
     </div>
   
-    <!-- Sign in button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit" onClick="window.location.href='menu';">Ingresar Cliente</button>
-    <button mdbBtn color="info" block="true" class="my-4" type="submit" onClick="window.location.href='menu-nutritionist';">Ingresar Nutricionista</button>
-  
-    <!-- Register -->
+    <button mdbBtn color="info" block="true" class="my-4" type="submit">Ingresar</button>
+    
     <p>¿No eres miembro?
-      <a href="new-client">Regístrate (Cliente)</a>
       <br>
-      <a href="new-nutritionist">Regístrate (Nutricionista)</a>
+      <button type="button" (click)='registerClient()'>Regístrate (Cliente)</button>
+      <br>
+      <button type="button" (click)='registerNutritionist()'>Regístrate (Nutricionista)</button>
     </p>
   
-  </form>
-  <!-- Default form login -->
+</form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/model/recipe';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -11,13 +11,16 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class PublishedRecipesComponent implements OnInit {
 
   lastName: string ='';
-  nutritionist_id: number = 1;
+  nutritionist_id: number = 0;
   recipes: Recipe[]=[];
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
      private recipeService: RecipeService) { }
 
   ngOnInit(): void {
+    this.nutritionist_id = this.route.snapshot.params['id'];
     this.loadDataRecipes();
   }
   
@@ -31,11 +34,11 @@ export class PublishedRecipesComponent implements OnInit {
     .subscribe(data=>{this.loadDataRecipes();})
   }
 
-  updateRecipe(recipe: Recipe){
-    this.router.navigate(['update-recipe', recipe.id])
+  updateRecipe(recipe: Recipe, nutritionistId: number){
+    this.router.navigate(['update-recipe', recipe.id, nutritionistId])
   }
 
-  insertRecipe(){
-    this.router.navigate(['new-recipe'])
+  insertRecipe(nutritionistId: number){
+    this.router.navigate(['new-recipe', nutritionistId])
   }
 }

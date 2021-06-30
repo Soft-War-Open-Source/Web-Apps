@@ -10,7 +10,9 @@ import { DietService } from 'src/app/services/diet.service';
 })
 export class UpdateDietComponent implements OnInit {
 
-  id: number = 1;
+  id: number = 0;
+  nutritionistId: number = 0;
+  appointmentId: number = 0;
   diet: Diet = new Diet();
 
   constructor(private route: ActivatedRoute,
@@ -19,6 +21,8 @@ export class UpdateDietComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.nutritionistId = this.route.snapshot.params['nutritionistId'];
+    this.appointmentId = this.route.snapshot.params['appointmentId'];
     this.dietService.getDietById(this.id)
     .subscribe(datos=>{
       console.log(datos)
@@ -32,6 +36,10 @@ export class UpdateDietComponent implements OnInit {
       console.log(datos)
     }, error=>console.log(error));
     this.diet = new Diet();
+    this.return();
   }
 
+  return(){
+    this.router.navigate(['list-diet-nutritionist', this.appointmentId])
+  }
 }

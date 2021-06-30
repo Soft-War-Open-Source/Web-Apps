@@ -10,7 +10,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class UpdateNotesComponent implements OnInit {
 
-  id: number = 1;
+  appointmentId: number = 0;
   appointment: Appointment = new Appointment();
 
   constructor(private route: ActivatedRoute,
@@ -18,8 +18,8 @@ export class UpdateNotesComponent implements OnInit {
     private appointmentService : AppointmentService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.appointmentService.getAppointmentById(this.id)
+    this.appointmentId = this.route.snapshot.params['id'];
+    this.appointmentService.getAppointmentById(this.appointmentId)
     .subscribe(datos=>{
       console.log(datos)
       this.appointment = datos;
@@ -27,11 +27,16 @@ export class UpdateNotesComponent implements OnInit {
   }
 
   updateNotes(appointment: Appointment){
-    this.appointmentService.updateAppointmentNotes(this.id, appointment, appointment.nutritionistNotes)
+    this.appointmentService.updateAppointmentNotes(this.appointmentId, appointment, appointment.nutritionistNotes)
     .subscribe(datos=>{
       console.log(datos)
     }, error=>console.log(error));
     this.appointment = new Appointment();
+    this.return(appointment);
+  }
+
+  return(appointment: Appointment){
+    this.router.navigate(['view-notes', appointment.id])
   }
 
 }

@@ -29,15 +29,15 @@
     <div>
         <div class="card" style="width: 18rem; ">
             <div class="card-body">
-              <h5 class="card-title text-center">AGENDAR CITA</h5>
-              <p>{{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
+              <h5 class="card-title text-center">AGENDAR ASESORÍA</h5>
+              <br>
+              <p>Nutricionista: {{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
               <p>Email: {{ nutritionist.email }}</p>
               <p>Costo: 35.00 soles</p>
               <p>Fecha selecionada: {{ date }}</p>
               <div class="text-center">
-                <a (click)='createAppointment()' class="btn btn-primary" 
-                  onClick="window.location.href='menu';">
-                  PAGAR CITA
+                <a (click)='createAppointment()' class="btn btn-primary">
+                  Agendar
                 </a>
               </div>
             </div>

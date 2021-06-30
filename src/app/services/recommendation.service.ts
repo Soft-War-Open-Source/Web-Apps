@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class RecommendationService {
 
-  private baseURL= 'https://appnutricare.herokuapp.com/api/recommendation';
-  //private baseURL= 'http://localhost:8080/api/recommendation';
+  //private baseURL= 'https://appnutricare.herokuapp.com/api/recommendation';
+  private baseURL= 'http://localhost:8080/api/recommendation';
 
   constructor(private http: HttpClient) { }
 

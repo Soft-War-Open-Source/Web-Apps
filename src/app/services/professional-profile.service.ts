@@ -7,21 +7,36 @@ import { Observable } from 'rxjs';
 })
 export class ProfessionalProfileService {
   
-  private baseURL= 'https://appnutricare.herokuapp.com/api/professional_profile';
-  //private baseURL= 'http://localhost:8080/api/professional_profile';
+  //private baseURL= 'https://appnutricare.herokuapp.com/api/ProfessionalProfiles';
+  private baseURL= 'http://localhost:8080/api/ProfessionalProfiles';
 
   constructor(private http: HttpClient) { }
 
-  createProfessionalprofile(professionalpofile: Object): Observable<Object>{
-    return this.http.post(`${this.baseURL}`, professionalpofile);
+  createProfessionalprofile(professionalprofile: Object): Observable<Object>{
+    return this.http.post(`${this.baseURL}`, professionalprofile);
   }
 
-  updateProfessionalprofile(id: number, professionalpofile: Object) : Observable<any>{
-    return this.http.put(`${this.baseURL}/${id}`, professionalpofile);
+  updateProfessionalprofile(id: number, professionalprofile: Object) : Observable<any>{
+    return this.http.put(`${this.baseURL}/${id}`, professionalprofile);
   }
 
   deleteProfessionalprofile(id: number): Observable<any>{
     return this.http.delete(`${this.baseURL}/${id}`);
   }
 
+  addSpecialtyToProfessionalProfile(specialtyId: number, professionalProfileId: number): Observable<Object>{
+    return this.http.post(`${this.baseURL}/${specialtyId}/${professionalProfileId}`, null);
+  }
+
+  deleteSpecialtyFromProfessionalProfile(specialtyId: number, professionalProfileId: number): Observable<any>{
+    return this.http.delete(`${this.baseURL}/${specialtyId}/${professionalProfileId}`);
+  }
+
+  findSpecialtiesByProfessionalProfileId(professionalProfileId: number): Observable<any>{
+    return this.http.get(`${this.baseURL}/findSpecialtiesByProfessionalProfileId/${professionalProfileId}`);
+  }
+
+  getProfessionalprofileByNutritionist(id: number) : Observable<any>{
+    return this.http.get(`${this.baseURL}/searchByNutritionist/${id}`);
+  }
 }

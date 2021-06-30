@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class RecipeService {
 
-  private baseURL= 'https://appnutricare.herokuapp.com/api/Recipes';
-  //private baseURL='http://localhost:8080/api/Recipes';
+  //private baseURL= 'https://appnutricare.herokuapp.com/api/Recipes';
+  private baseURL='http://localhost:8080/api/Recipes';
 
   constructor(private http: HttpClient) { }
 

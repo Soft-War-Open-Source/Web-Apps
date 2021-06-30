@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Nutritionist } from 'src/app/model/nutritionist';
 import { NutritionistService } from 'src/app/services/nutritionist.service';
 
@@ -10,14 +10,18 @@ import { NutritionistService } from 'src/app/services/nutritionist.service';
 })
 export class NutritionistSelectedComponent implements OnInit {
 
-  id: number = 1;
-  nutritionists: Nutritionist[]=[];
+  client_id: number = 0;
+  nutritionist_id: number = 0;
   nutritionist: Nutritionist = new Nutritionist();
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private nutritionistService: NutritionistService) { }
 
   ngOnInit(): void {
+    this.client_id = this.route.snapshot.params['client_id'];
+    this.nutritionist_id = this.route.snapshot.params['nutritionist_id'];
     this.loadDataNutritionist();
   }
 
@@ -26,8 +30,15 @@ export class NutritionistSelectedComponent implements OnInit {
   }
 
   searchNutritionistbyId(){
-    this.nutritionistService.getNutritionistById(this.id)
-    //.subscribe(nutritionist=>this.nutritionists.push(nutritionist))
-    .subscribe(nutritionist=>this.nutritionist = nutritionist)
+    this.nutritionistService.getNutritionistById(this.nutritionist_id)
+    //.subscribe(nutritionist=>this.nutritionist = nutritionist)
+    .subscribe(datos=>{
+      console.log(datos)
+      this.nutritionist = datos;
+    }, error=>console.log(error));
+  }
+
+  createAppointment(client_id: number, nutritionist_id: number){
+    this.router.navigate(['new-appointment', client_id, nutritionist_id])
   }
 }

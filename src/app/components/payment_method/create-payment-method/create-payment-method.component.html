@@ -6,7 +6,7 @@
                 <li class="active">Payment</li>
             </ul>
         </div>
-        <form (ngSubmit)="insertPaymentMethod()">
+        <form (ngSubmit)="insertPaymentMethod(client)">
             <span id="card-header">Add new card:</span>
             <div class="row-1">
                 <div class="row row-2"> <span id="card-inner">First Name</span> </div>
@@ -74,9 +74,7 @@
                 <div class="row row-2"> <input class="form-control" id="billingAddressLine2" 
                     name="billingAddressLine2"type="text" placeholder="Dirección línea 2" required [(ngModel)]="payment.billingAddressLine2"/> </div>
             </div>
-            <button type="submit" class="btn d-flex mx-auto" onClick="window.location.href='menu';"><b>Add card</b></button>
+            <button type="submit" class="btn btn-success"><b>Add card</b></button>
         </form>
     </div>
-    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
-    <script type='text/javascript'></script>
 </div>

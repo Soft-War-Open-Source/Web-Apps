@@ -6,7 +6,7 @@
             <p class="card-text">{{ nutritionist.firstName }} {{ nutritionist.lastName }}</p>
             <p class="card-text">CNP: {{ nutritionist.cnpNumber }}</p>
             <p class="card-text">Email: {{ nutritionist.email }}</p>
-            <button type="submit" class="btn btn-primary" onClick="window.location.href='nutritionist-selected';">
+            <button type="submit" class="btn btn-primary" (click)='nutritionistSelected(nutritionist.id)'>
                 Ver horarios disponibles
             </button>
         </div>

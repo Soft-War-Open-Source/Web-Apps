@@ -1,7 +1,7 @@
 <br/>
 <h2>Recomendaciones publicadas</h2>
 
-<button type="submit" (click)='insertRecommendation()' class="btn btn-primary">
+<button type="submit" (click)='insertRecommendation(nutritionist_id)' class="btn btn-primary">
     Publicar
 </button>
 <br/>
@@ -24,7 +24,7 @@
                 <td>{{ recommendation.createdAt }}</td>
                 <td>{{ recommendation.lastModification }}</td>
                 <td>
-                    <button type="submit" (click)='updateRecommendation(recommendation)' class="btn btn-primary">
+                    <button type="submit" (click)='updateRecommendation(recommendation, nutritionist_id)' class="btn btn-primary">
                         Actualizar
                     </button>
                     <button type="submit" (click)='deleteRecommendation(recommendation.id)' class="btn btn-danger">

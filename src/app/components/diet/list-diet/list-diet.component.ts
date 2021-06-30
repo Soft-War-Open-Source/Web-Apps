@@ -14,7 +14,7 @@ import { DietService } from 'src/app/services/diet.service';
 })
 export class ListDietComponent implements OnInit {
 
-  appointment_id: number = 1;
+  appointment_id: number = 0;
   appointment: Appointment = new Appointment();
   diet: Diet = new Diet();
   recipes: Recipe[]=[];

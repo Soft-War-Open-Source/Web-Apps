@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/model/appointment';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
@@ -10,18 +10,21 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class PendingAppointmentsComponent implements OnInit {
 
-  id: number = 1;
+  nutritionist_id: number = 0;
   appointments: Appointment[]=[];
 
-  constructor(private router: Router,
-  private appointmentService: AppointmentService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
+    this.nutritionist_id = this.route.snapshot.params['id']
     this.loadDataAppointments();
   }
 
   loadDataAppointments(){
-    this.appointmentService.getAppointmentByNutritionist(this.id)
+    this.appointmentService.getAppointmentByNutritionist(this.nutritionist_id)
     .subscribe(appointments=>this.appointments=appointments);
   }
   

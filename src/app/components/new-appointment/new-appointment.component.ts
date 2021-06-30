@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { Bill } from 'src/app/model/bill';
 import { Client } from 'src/app/model/client';
@@ -18,14 +18,19 @@ import { NutritionistService } from 'src/app/services/nutritionist.service';
 })
 export class NewAppointmentComponent implements OnInit {
 
-  id: number = 1;
+  client_id: number = 0;
+  nutritionist_id: number = 0;
+
   nutritionist: Nutritionist = new Nutritionist();
   appointment: Appointment = new Appointment();
   client: Client = new Client();
+
   bill: Bill = new Bill();
   date: Date = new Date();
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private nutritionistService: NutritionistService,
     private clientService: ClientService,
     private appointmentService: AppointmentService,
@@ -33,6 +38,8 @@ export class NewAppointmentComponent implements OnInit {
     private billService: BillService) { }
 
   ngOnInit(): void {
+    this.client_id = this.route.snapshot.params['client_id'];
+    this.nutritionist_id = this.route.snapshot.params['nutritionist_id'];
     this.loadDataAppointment();
   }
 
@@ -42,7 +49,7 @@ export class NewAppointmentComponent implements OnInit {
   }
 
   searchNutritionistbyId(){
-    this.nutritionistService.getNutritionistById(this.id)
+    this.nutritionistService.getNutritionistById(this.nutritionist_id)
     .subscribe(datos=>{
       console.log(datos)
       this.nutritionist = datos;
@@ -50,7 +57,7 @@ export class NewAppointmentComponent implements OnInit {
   }
 
   searchClientbyId(){
-    this.clientService.getClientById(this.id)
+    this.clientService.getClientById(this.client_id)
     .subscribe(datos=>{
       console.log(datos)
       this.client = datos;
@@ -73,6 +80,7 @@ export class NewAppointmentComponent implements OnInit {
     this.bill = new Bill();
     this.client = new Client();
     this.appointment = new Appointment();
-    this.nutritionist = new Nutritionist();
+    this.nutritionist = new Nutritionist(); 
+    this.router.navigate(['menu', this.client_id]);
   }
 }
