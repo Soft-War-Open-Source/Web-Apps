@@ -40,4 +40,8 @@ export class FavoriteRecipesComponent implements OnInit {
     .subscribe(datos=>console.log(datos), error=>console.log(error));
     this.ngOnInit();
   }
+  
+  return(){
+    this.router.navigate(['list-recipes', this.client_id])
+  }
 }

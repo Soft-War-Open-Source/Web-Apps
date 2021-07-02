@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/model/appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
@@ -11,22 +11,32 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class AppointmentHistoryClientComponent implements OnInit {
   
-  id: number = 1;
+  id: number = 0;
   appointments: Appointment[]=[];
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
   private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
     this.loadDataAppointments();
   }
 
   loadDataAppointments(){
     this.appointmentService.getAppointmentByClient(this.id)
-    .subscribe(appointments=>this.appointments=appointments);
+    .subscribe(datos=>{
+      console.log(datos)
+      this.appointments = datos;
+    }, error=>console.log(error));
   }
 
   viewDiet(appointment: Appointment){
     this.router.navigate(['list-diet', appointment.id])
+  }
+  
+  return(){
+    this.router.navigate(['menu', this.id]);
   }
 }

@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class SpecialtyService {
 
-  private baseURL= 'https://appnutricare.herokuapp.com/api/specialty';
-  //private baseURL= 'http://localhost:8080/api/specialty';
+  //private baseURL= 'https://appnutricare.herokuapp.com/api/specialty';
+  private baseURL= 'http://localhost:8080/api/specialty';
   
   constructor(private http: HttpClient) { }
 
@@ -28,6 +28,10 @@ export class SpecialtyService {
   }
   getSpecialtyById(id: number) : Observable<any>{
     return this.http.get(`${this.baseURL}/${id}`);
+  }
+
+  searchByNameAndInstitutionName(name: string, nameInstitution: string): Observable<any>{
+    return this.http.get(`${this.baseURL}/findByNameAndInstitutionName/${name}/${nameInstitution}`);
   }
 
 }

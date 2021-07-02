@@ -15,6 +15,7 @@ export class AddDietRecipesComponent implements OnInit {
   name: string='';
   diet_id: number = 0;
   diet: Diet = new Diet();
+  appointmentId: number = 0;
   recipes: Recipe[]=[];
 
   constructor(
@@ -25,6 +26,7 @@ export class AddDietRecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.diet_id = this.route.snapshot.params['id'];
+    this.appointmentId = this.route.snapshot.params['appointmentId'];
     this.dietService.getDietById(this.diet_id)
     .subscribe(datos=>{
       console.log(datos)
@@ -40,5 +42,10 @@ export class AddDietRecipesComponent implements OnInit {
   addRecipeToDiet(diet: Diet, recipe: Recipe){
     this.dietService.addRecipeToDiet(recipe.id, diet.id)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
+    this.return();
+  }
+
+  return(){
+    this.router.navigate(['list-diet-nutritionist', this.appointmentId])
   }
 }

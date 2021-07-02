@@ -11,7 +11,7 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class UpdateClientComponent implements OnInit {
 
-  id: number = 1;
+  id: number = 0;
   client: Client = new Client();
 
   constructor(private route: ActivatedRoute,
@@ -27,13 +27,13 @@ export class UpdateClientComponent implements OnInit {
     }, error=>console.log(error));
   }
 
-  updateClient(){
-    this.clientService.updateClient(this.id, this.client)
+  updateClient(client: Client){
+    this.clientService.updateClient(this.id, client)
     .subscribe(datos=>{
       console.log(datos)
-      this.router.navigate(['list-clients']);
     }, error=>console.log(error));
     this.client = new Client();
+    this.router.navigate(['list-clients', client.id])
   }
 
 }

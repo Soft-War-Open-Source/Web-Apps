@@ -1,8 +1,13 @@
 <br/>
 <h2>Recetas publicadas</h2>
 
-<button type="submit" (click)='insertRecipe()' class="btn btn-primary">
-    Publicar
+<button type="submit" class="btn btn-success" (click)='insertRecipe(nutritionist_id)'>
+    Publicar nueva receta
+</button>
+<br/>
+<br>
+<button type="button" class="btn btn-success" (click)='return()'>
+  Atrás
 </button>
 <br/>
 
@@ -30,10 +35,10 @@
                 <td>{{ recipe.created_at }}</td>
                 <td>{{ recipe.last_modification }}</td>
                 <td>
-                    <button type="submit" (click)='updateRecipe(recipe)' class="btn btn-primary">
+                    <button type="button" class="btn btn-success" (click)='updateRecipe(recipe, nutritionist_id)'>
                         Actualizar
                     </button>
-                    <button type="submit" (click)='deleteRecipe(recipe.id)' class="btn btn-danger">
+                    <button type="button" class="btn btn-success" (click)='deleteRecipe(recipe.id)'>
                         Eliminar
                     </button>
                 </td>

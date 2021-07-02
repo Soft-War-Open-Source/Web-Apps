@@ -12,9 +12,9 @@ import { RecommendationService } from 'src/app/services/recommendation.service';
 })
 export class CreateRecommendationComponent implements OnInit {
 
-  recommendations: Recommendation[]=[];
-  nutritionists: Nutritionist[]=[];
-  nutritionist_id: number = 1;
+  recommendation: Recommendation = new Recommendation();
+  nutritionist: Nutritionist = new Nutritionist();
+  nutritionist_id: number = 0;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -23,22 +23,29 @@ export class CreateRecommendationComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.recommendations.push(new Recommendation());
+    this.nutritionist_id = this.route.snapshot.params['nutritionistId'];
     this.assignNutritionist();
   }
 
   assignNutritionist(){
     this.nutritionistService.getNutritionistById(this.nutritionist_id)
-    .subscribe(datos=>this.nutritionists.push(datos));
+    .subscribe(datos=>{
+      console.log(datos)
+      this.nutritionist = datos;
+    }, error=>console.log(error));
   }
   
-  insertRecommendation(){
-    this.recommendations[0].nutritionist = this.nutritionists[0];
-    this.recommendationService.createRecommendation(this.recommendations[0])
+  insertRecommendation(recommendation: Recommendation, nutritionist: Nutritionist){
+    recommendation.nutritionist = nutritionist;
+    this.recommendationService.createRecommendation(recommendation)
     .subscribe(datos=>console.log(datos), error=>console.log(error));
-    this.recommendations = [];
-    this.nutritionists = [];
-    this.router.navigate(['pusblished-recommendations']);
+    this.recommendation = new Recommendation();
+    this.nutritionist = new Nutritionist();
+    this.return();
+  }
+
+  return(){
+    this.router.navigate(['published-recommendations', this.nutritionist_id]);
   }
 
 }

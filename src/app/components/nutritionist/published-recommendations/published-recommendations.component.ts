@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recommendation } from 'src/app/model/recommendation';
 import { RecommendationService } from 'src/app/services/recommendation.service';
 
@@ -10,13 +10,16 @@ import { RecommendationService } from 'src/app/services/recommendation.service';
 })
 export class PublishedRecommendationsComponent implements OnInit {
 
-  nutritionist_id: number = 1;
+  nutritionist_id: number = 0;
   recommendations: Recommendation[]=[];
 
-  constructor(private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
      private recommendationService: RecommendationService) { }
 
   ngOnInit(): void {
+    this.nutritionist_id = this.route.snapshot.params['id'];
     this.loadDataRecommendation();
   }
   
@@ -30,12 +33,16 @@ export class PublishedRecommendationsComponent implements OnInit {
     .subscribe(data=>{this.loadDataRecommendation();})
   }
 
-  updateRecommendation(recommendation: Recommendation){
-    this.router.navigate(['update-recommendation', recommendation.id])
+  updateRecommendation(recommendation: Recommendation, nutritionistId: number){
+    this.router.navigate(['update-recommendation', recommendation.id, nutritionistId])
   }
 
-  insertRecommendation(){
-    this.router.navigate(['new-recommendation'])
+  insertRecommendation(nutritionistId: number){
+    this.router.navigate(['new-recommendation', nutritionistId])
+  }
+  
+  return(){
+    this.router.navigate(['menu-nutritionist', this.nutritionist_id]);
   }
 
 }

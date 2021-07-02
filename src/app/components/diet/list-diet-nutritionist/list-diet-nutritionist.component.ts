@@ -43,11 +43,20 @@ export class ListDietNutritionistComponent implements OnInit {
     }, error=>console.log(error));
   }
 
-  updateDiet(diet: Diet){
-    this.router.navigate(['update-diet', diet.id])
+  updateDiet(diet: Diet, appointment: Appointment){
+    this.router.navigate(['update-diet', diet.id, appointment.nutritionist.id, appointment.id])
   }
 
-  addRecipeToDiet(diet: Diet){
-    this.router.navigate(['add-diet-recipes', diet.id])
+  addRecipeToDiet(diet: Diet, appointment: Appointment){
+    this.router.navigate(['add-diet-recipes', diet.id, appointment.id])
+  }
+
+  deleteRecipeFromDiet(recipe: Recipe, diet: Diet){
+    this.dietService.deleteRecipeFromDiet(recipe.id, diet.id)
+    .subscribe(datos=>console.log(datos), error=>console.log(error));
+  }
+
+  return(appointment: Appointment){
+    this.router.navigate(['appointments-history-nutritionist', appointment.nutritionist.id])
   }
 }

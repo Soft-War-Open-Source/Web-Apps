@@ -10,7 +10,7 @@ import { NutritionistService } from 'src/app/services/nutritionist.service';
 })
 export class UpdateNutritionistComponent implements OnInit {
 
-  id: number = 1;
+  id: number = 0;
   nutritionist: Nutritionist = new Nutritionist();
 
   constructor(private route: ActivatedRoute,
@@ -30,9 +30,9 @@ export class UpdateNutritionistComponent implements OnInit {
     this.nutritionistService.updateNutritionist(this.id, this.nutritionist)
     .subscribe(datos=>{
       console.log(datos)
-      this.router.navigate(['list-nutritionists']);
     }, error=>console.log(error));
     this.nutritionist = new Nutritionist();
+    this.router.navigate(['list-nutritionists', this.id])
   }
 
 }

@@ -10,7 +10,8 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class UpdateRecipeComponent implements OnInit {
 
-  id: number = 1;
+  id: number = 0;
+  nutritionistId: number = 0;
   recipe: Recipe = new Recipe();
 
   constructor(private route: ActivatedRoute,
@@ -19,6 +20,7 @@ export class UpdateRecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.nutritionistId = this.route.snapshot.params['nutritionistId'];
     this.recipeService.getRecipeById(this.id)
     .subscribe(datos=>{
       console.log(datos)
@@ -26,13 +28,13 @@ export class UpdateRecipeComponent implements OnInit {
     }, error=>console.log(error));
   }
 
-  updateRecipe(){
+  updateRecipe(nutritionistId: number){
     this.recipeService.updateRecipe(this.id, this.recipe)
     .subscribe(datos=>{
       console.log(datos)
-      this.router.navigate(['published-recipes']);
     }, error=>console.log(error));
     this.recipe = new Recipe();
+    this.router.navigate(['published-recipes', nutritionistId]);
   }
 
 }

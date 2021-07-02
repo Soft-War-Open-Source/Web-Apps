@@ -2,12 +2,32 @@
 <h2>Anotaciones</h2>
 <br>
 <br>
-<div class="card" style="width: 20rem;">
-    <p>{{ appointment.nutritionistNotes }}</p>
-</div>
-<br>
-<div class="card" style="width: 10rem;">
-    <button (click)='updateNotes(appointment)'>
-        Modificar Notas
-    </button>
-</div>
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <h6>{{ appointment.nutritionistNotes }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success" (click)='updateNotes(appointment)'>
+                        Modificar Notas
+                    </button>
+                    <button type="button" class="btn btn-success" (click)='return(appointment)'>
+                        Atrás
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>

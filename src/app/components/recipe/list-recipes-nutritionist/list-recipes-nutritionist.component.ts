@@ -14,7 +14,7 @@ export class ListRecipesNutritionistComponent implements OnInit {
   date: Date = new Date();
   name: string = "";
   date2: string = "";
-  client_id: number = 0;
+  nutritionist_id: number = 0;
   recipes: Recipe[]=[];
 
   constructor(private router: Router,
@@ -23,7 +23,7 @@ export class ListRecipesNutritionistComponent implements OnInit {
     private datepipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.client_id = this.route.snapshot.params['id'];
+    this.nutritionist_id = this.route.snapshot.params['id'];
     this.recipeService.getRecipeList()
     .subscribe(datos=>{
       console.log(datos)
@@ -35,6 +35,10 @@ export class ListRecipesNutritionistComponent implements OnInit {
     {
       this.date2 = today_date;
     }
+  }
+  
+  return(){
+    this.router.navigate(['menu-nutritionist', this.nutritionist_id]);
   }
 
 }

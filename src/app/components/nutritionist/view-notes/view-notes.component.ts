@@ -10,7 +10,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class ViewNotesComponent implements OnInit {
 
-  appointment_id: number = 1;
+  appointment_id: number = 0;
   appointment: Appointment = new Appointment();
 
   constructor(
@@ -29,5 +29,9 @@ export class ViewNotesComponent implements OnInit {
 
   updateNotes(appointment: Appointment){
     this.router.navigate(['update-notes', appointment.id])
+  }
+
+  return(appointment: Appointment){
+    this.router.navigate(['appointments-history-nutritionist', appointment.nutritionist.id])
   }
 }
